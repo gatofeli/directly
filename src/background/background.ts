@@ -1,13 +1,20 @@
+import { STORAGE_KEYS } from "../utils/constants/storageKeys";
 import { KEY_MESSAGE, unionMessage } from "../utils/message/types";
 import { navigateInNewTab } from "./events/message/navegation/navigateInNewTab";
 import { navigateInSameTab } from "./events/message/navegation/navigateInSameTab";
-import { openTabSearcher } from "./events/openExtension/openTabSearcher";
+import { openInNewTab } from "./events/searcher/openInNewTab";
 
-chrome.commands.onCommand.addListener(() => {
-  openTabSearcher();
+chrome.commands.onCommand.addListener((command, tab) => {
+  if (command === "openInSameTab" && tab.id) {
+    //todo: openInSameTab(tab.id....)
+  } else {
+    openInNewTab();
+  }
 });
 chrome.action.onClicked.addListener(() => {
-  openTabSearcher();
+  //todo: revisar los commands
+  //todo: abrir Add
+  openInNewTab(); //todo: ------------ borrar
 });
 
 chrome.runtime.onMessage.addListener((msg: unionMessage, sender) => {
@@ -31,7 +38,7 @@ chrome.runtime.onMessage.addListener((msg: unionMessage, sender) => {
 chrome.runtime.onInstalled.addListener(async () => {
   await chrome.storage.local.clear();
   chrome.storage.local.set({
-    searchProviders: [
+    [STORAGE_KEYS.PROVIDERS]: [
       {
         alias: "Youtube",
         url: "https://www.youtube.com/results?search_query=--shortcutSearchExtension--",
@@ -69,6 +76,6 @@ chrome.runtime.onInstalled.addListener(async () => {
         url: "https://aniwatchtv.to/search?keyword=--shortcutSearchExtension--",
       },
     ],
-    _config_: {},
+    [STORAGE_KEYS.CONFIG]: {},
   });
 });

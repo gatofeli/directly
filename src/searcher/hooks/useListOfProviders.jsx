@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { controller } from "../../utils/storage/Controller";
 
-export function useSearchProviders() {
+export function useListOfProviders() {
   const [searchProviders, setSearchProviders] = useState([]);
 
   const fetchProviders = async () => {
@@ -13,5 +13,5 @@ export function useSearchProviders() {
     fetchProviders();
   }, []);
 
-  return { searchProviders };
+  return { listOfProviders: searchProviders };
 }

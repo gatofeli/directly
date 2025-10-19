@@ -8,31 +8,26 @@ export function useHandleForm() {
   const ctrlSubmit = useRef(false);
 
   useEffect(() => {
-    if (isHiddenProviders) {
-      return;
+    if (!isHiddenProviders) {
+      document.querySelector("#providersWrapper > ul > li > button")?.focus();
     }
-
-    document.querySelector("ul")?.firstElementChild.firstElementChild.focus();
   }, [isHiddenProviders]);
 
   const setCtrlSubmit = (newValue) => {
     ctrlSubmit.current = newValue;
   };
-
-  const activateProvidersSelection = () => {
-    isHiddenProviders & setIsHiddenProviders(false);
+  const activateProvidersList = () => {
+    setIsHiddenProviders(false);
   };
-
-  const desactivateProvidersSelection = () => {
-    isHiddenProviders || setIsHiddenProviders(true);
+  const desactivateProvidersList = () => {
+    setIsHiddenProviders(true);
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const provider = event.nativeEvent.submitter.value;
 
     if (provider === "") {
-      activateProvidersSelection();
+      activateProvidersList();
       return;
     }
 
@@ -45,5 +40,5 @@ export function useHandleForm() {
     internalMessage.requestNavigation(searchUrl, isSameTab);
   };
 
-  return { isHiddenProviders, handleSubmit, setCtrlSubmit, desactivateProvidersSelection };
+  return { isHiddenProviders, handleSubmit, setCtrlSubmit, desactivateProvidersList };
 }

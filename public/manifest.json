@@ -1,36 +1,50 @@
 {
   "manifest_version": 3,
   "author": "Alejandro Aranda Muñoz",
-  "name": "Search Shortener",
-  "version": "0.0.0",
-  "description": "------------------",
+  "name": "SpeedyBar",
+  "version": "0.0.1.1",
+  "version_name": "alpha 0 - PRE-FIX",
+  "description": "Accede o busca en tus webs favoritas de forma rápida, directa y sin pasos extra",
   "icons": {
-    "16": "icons/searchShortnerExtensionIcon16.png",
-    "32": "icons/searchShortnerExtensionIcon32.png",
-    "48": "icons/searchShortnerExtensionIcon48.png",
-    "128": "icons/searchShortnerExtensionIcon128-96.png"
+    "16": "icons/search_16.png",
+    "32": "icons/search_32.png",
+    "48": "icons/search_48.png",
+    "128": "icons/search_128.png"
   },
   "action": {
     "default_icon": {
-      "16": "icons/searchShortnerExtensionIcon16.png",
-      "32": "icons/searchShortnerExtensionIcon32.png",
-      "48": "icons/searchShortnerExtensionIcon48.png",
-      "128": "icons/searchShortnerExtensionIcon128-96.png"
+      "16": "icons/search_16.png",
+      "32": "icons/search_32.png",
+      "48": "icons/search_48.png",
+      "128": "icons/search_128.png"
     },
-    "default_title": "Search Shortener"
+    "default_title": "SpeedyBar"
   },
-  "permissions": ["tabs", "storage"],
+  "permissions": ["storage"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "commands": {
-    "search": {
+    "openInSameTab": {
       "suggested_key": {
-        "default": "Ctrl+Shift+H",
+        "default": "Ctrl+Space",
+        "windows": "Ctrl+Space",
+        "linux": "Ctrl+Space",
+        "chromeos": "Ctrl+Space",
         "mac": "Shift+Alt+Space"
       },
-      "description": "Abrir el buscador"
+      "description": "Abrir extensión en pestaña actual"
+    },
+    "openInNewTab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "windows": "Ctrl+Shift+Space",
+        "linux": "Ctrl+Shift+Space",
+        "chromeos": "Ctrl+Shift+Space",
+        "mac": "Shift+Alt+N"
+      },
+      "description": "Abrir extensión en pestaña nueva"
     }
   }
 }

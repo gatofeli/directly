@@ -4,8 +4,6 @@ class InternalMessage {
   requestNavigation(url: string, isSameTab: boolean) {
     const typeMessage = isSameTab ? KEY_MESSAGE.NAVIGATION_SAME : KEY_MESSAGE.NAVIGATION_NEW;
 
-    //TODO: validacion de longitud y url
-
     const message: messageNavigation = {
       typeMessage,
       url,

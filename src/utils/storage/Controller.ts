@@ -1,15 +1,18 @@
+import { STORAGE_KEYS } from "../constants/storageKeys";
 import { isValidURL } from "./modules/isValidURL";
 import { verificationAlias } from "./modules/verificationAlias";
-import { SearchProviders, StorageType } from "./type";
+import { ProviderType } from "./type";
 
 class Controller {
   async getSearchProviders() {
-    const { searchProviders }: StorageType = await chrome.storage.local.get("searchProviders");
+    const storageProviders: { [STORAGE_KEYS.PROVIDERS]: ProviderType[] } = await chrome.storage.local.get([
+      STORAGE_KEYS.PROVIDERS,
+    ]);
     if (chrome.runtime.lastError) {
       //!-------------------------------------------- Error de API
     }
 
-    const { providers, needsUpdate } = this.#sanitizeProviders(searchProviders);
+    const { providers, needsUpdate } = this.#sanitizeProviders(storageProviders[STORAGE_KEYS.PROVIDERS]);
     if (needsUpdate) {
       //!-------------------------------------------- Actualizar DB (providers)
     }
@@ -17,8 +20,8 @@ class Controller {
     return providers;
   }
 
-  #sanitizeProviders(searchProviders: SearchProviders[]) {
-    const providers: SearchProviders[] = [];
+  #sanitizeProviders(searchProviders: ProviderType[]) {
+    const providers: ProviderType[] = [];
     let needsUpdate = false;
 
     if (!Array.isArray(searchProviders)) {
@@ -43,7 +46,7 @@ class Controller {
         needsUpdate = true;
       }
 
-      const newProvider: SearchProviders = {
+      const newProvider: ProviderType = {
         alias,
         url: provider.url,
       };
