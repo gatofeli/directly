@@ -1,0 +1,76 @@
+.wrapper {
+  z-index: 1;
+
+  flex: 0 0 auto;
+
+  padding-block-start: 30px;
+
+  background-color: var(--config-color-backdrop_1);
+
+  box-shadow: 2px 0 14px 0 var(--filament-color_4);
+
+  overflow-y: auto;
+}
+
+.list {
+  inline-size: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.element {
+  display: block;
+  border-inline-start: 5px solid transparent;
+
+  inline-size: 100%;
+  block-size: 4.2rem;
+
+  padding-inline-start: 1rem;
+  padding-inline-end: 2.8rem;
+
+  align-content: center;
+
+  color: var(--config-color-text_1);
+  text-decoration: none;
+
+  cursor: pointer;
+
+  font-family: sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  &:hover {
+    border-inline-start-color: var(--filament-color_2);
+    color: var(--filament-color_2);
+    background-color: var(--config-color-backdrop_5);
+  }
+  &:focus {
+    outline: 2px solid var(--filament-color_2);
+    background-color: var(--config-color-backdrop_5);
+    color: var(--filament-color_2);
+  }
+
+  &:active {
+    background-color: var(--filament-color_2);
+    color: var(--config-color-backdrop_1);
+  }
+}
+
+.current {
+  border-inline-start-color: var(--filament-color_1);
+  color: var(--filament-color_2);
+
+  &:hover {
+    border-inline-start-color: var(--filament-color_1);
+  }
+
+  &:focus {
+    outline: 2px solid var(--filament-color_1);
+    color: var(--filament-color_1);
+  }
+  &:active {
+    color: var(--config-color-backdrop_1);
+  }
+}

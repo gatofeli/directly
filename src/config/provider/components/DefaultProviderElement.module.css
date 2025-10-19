@@ -1,0 +1,141 @@
+.wrapper {
+  background-color: var(--config-color-backdrop_1);
+  border: 1px solid var(--config-color-border);
+
+  /* min-inline-size: 310px;
+  max-inline-size: 45%; */
+
+  padding: 1.1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  &:hover {
+    box-shadow: 0 0 3px 0 var(--config-color-text_3);
+  }
+  &:focus-within {
+    box-shadow: 0 0 3px 0 var(--config-color-text_3);
+  }
+}
+
+.title {
+  &.enabled {
+    color: var(--filament-color_2);
+  }
+  &.disabled {
+    color: var(--config-color-border);
+  }
+}
+
+.button {
+  block-size: 27px;
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  &.enabled {
+    color: var(--filament-color_2);
+  }
+  &.enabled:hover {
+    color: var(--config-color-delete_1-0);
+  }
+  &.enabled:focus {
+    color: var(--config-color-delete_1-0);
+    outline: 2px solid var(--config-color-delete_1-0);
+  }
+  &.enabled:active {
+    color: var(--config-color-delete_1-1);
+    outline: none;
+  }
+
+  &.disabled {
+    color: var(--config-color-border);
+  }
+  &.disabled:hover {
+    color: var(--config-color-ok_1-0);
+  }
+  &.disabled:focus {
+    color: var(--config-color-ok_1-0);
+    outline: 2px solid var(--config-color-ok_1-0);
+  }
+  &.disabled:active {
+    color: var(--config-color-ok_1-1);
+    outline: none;
+  }
+
+  & svg {
+    color: inherit;
+    block-size: 100%;
+  }
+}
+
+/* --------------------------------------------- */
+
+.wrapper:has(.animation-to-disable:focus, .animation-to-disable:hover) .title {
+  text-decoration: 2px solid line-through var(--config-color-delete_1-0);
+  color: var(--config-color-border);
+  transition: ease-in 0.3s;
+}
+.wrapper:has(.animation-to-disable:active) .title {
+  text-decoration: 12px solid line-through var(--config-color-delete_1-1);
+  transition: ease-in 0.1s;
+}
+
+/* --------------------------------------------- */
+
+.wrapper:has(.animation-to-enable:focus, .animation-to-enable:hover) .title {
+  color: var(--filament-color_1);
+  text-shadow: 0 0 0 var(--filament-color_1);
+  will-change: text-shadow, filter;
+  animation: ani-to-enable 1s ease-in-out 1 forwards;
+}
+.wrapper:has(.animation-to-enable:active) .title {
+  color: var(--filament-color_2);
+  text-shadow: 0 0 0 var(--filament-color_2);
+  will-change: text-shadow, filter;
+}
+
+@keyframes ani-to-enable {
+  0% {
+    text-shadow: 0 0 0 var(--filament-color_1);
+    filter: brightness(1);
+  }
+  3% {
+    text-shadow:
+      0 0 6px var(--filament-color_1),
+      0 0 14px var(--filament-color_1);
+    filter: brightness(1.1);
+  }
+  6% {
+    text-shadow: 0 0 0 var(--filament-color_1);
+    filter: brightness(1);
+  }
+
+  25% {
+    text-shadow:
+      0 0 10px var(--filament-color_1),
+      0 0 22px var(--filament-color_1);
+    filter: brightness(1.15);
+  }
+  30% {
+    text-shadow: 0 0 0 var(--filament-color_1);
+    filter: brightness(1);
+  }
+
+  60% {
+    text-shadow:
+      0 0 12px var(--filament-color_1),
+      0 0 28px var(--filament-color_1);
+    filter: brightness(1.12);
+  }
+  100% {
+    text-shadow:
+      0 0 14px var(--filament-color_1),
+      0 0 36px var(--filament-color_1);
+    filter: brightness(1.12);
+  }
+}

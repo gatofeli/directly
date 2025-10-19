@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "useDefineForClassFields": true,
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "allowJs": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "types": ["vite/client", "vitest/globals", "chrome"],
+
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Alias */
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["src/utils/*"],
+      "@searcher/*": ["src/searcher/*"],
+      "@config-provider/*": ["src/config/provider/*"],
+      "@config-theme/*": ["src/config/theme/*"],
+      "@config-info/*": ["src/config/info/*"],
+      "@config-bug/*": ["src/config/reportBug/*"],
+      "@config-utils/*": ["src/config/utils/*"],
+
+      "@background/*": ["src/background/*"]
+    }
+  },
+  "include": ["src/", "vite-env.d.ts"],
+  "exclude": ["node_modules/", "coverage/", "dist/", "public/"]
+}

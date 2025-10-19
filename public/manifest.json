@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "author": "Alejandro Aranda Muñoz",
+  "name": "Directly",
+  "version": "0.0.1.0",
+  "version_name": "Beta 1 -Private-",
+  "description": "Accede o busca en tus webs favoritas al instante con un simple atajao de teclado. Sin pasos extra, directo a la home o a la consulta",
+  "icons": {
+    "16": "assets/logo_16.png",
+    "32": "assets/logo_32.png",
+    "48": "assets/logo_48.png",
+    "128": "assets/logo_128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/logo_16.png",
+      "32": "assets/logo_32.png",
+      "48": "assets/logo_48.png",
+      "128": "assets/logo_128.png"
+    },
+    "default_title": "Directly"
+  },
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "commands": {
+    "openInNewTab": {
+      "suggested_key": {
+        "default": "Ctrl+Space",
+        "windows": "Ctrl+Space",
+        "linux": "Ctrl+Space",
+        "chromeos": "Ctrl+Space",
+        "mac": "Shift+Alt+Space"
+      },
+      "description": "Abrir extensión"
+    }
+  }
+}

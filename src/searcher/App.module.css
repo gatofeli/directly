@@ -1,0 +1,44 @@
+.backdrop {
+  inline-size: 100vw;
+  block-size: 100vh;
+
+  background-color: var(--layout-tab-color);
+
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.main {
+  inline-size: 90vw;
+
+  min-block-size: 358px;
+  min-inline-size: 345px;
+
+  padding-block-start: 3rem;
+}
+.footer {
+  display: flex;
+  gap: 2rem;
+}
+.footer-anchor {
+  inline-size: 35px;
+  block-size: 35px;
+
+  color: var(--text-user-blur-color);
+
+  &:hover,
+  &:focus {
+    color: var(--filament-color);
+    transform: scale(110%);
+  }
+  &:focus {
+    outline: 3px solid var(--filament-color);
+  }
+}
