@@ -1,5 +1,0 @@
-export enum URL_VALIDATION_STATUS {
-  INVALID = -1,
-  MISSING_KEYWORD,
-  SUCCES,
-}

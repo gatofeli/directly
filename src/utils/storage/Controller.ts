@@ -1,81 +1,58 @@
-import { URL_VALIDATION_STATUS } from "../constants/enums";
-import { verificationId } from "./modules/verificationId";
-import { verificationName } from "./modules/verificationName";
-import { verificationURL } from "./modules/verificationURL";
-import { ProcessedDataURL, StorageDataURL, StorageType } from "./type";
+import { isValidURL } from "./modules/isValidURL";
+import { verificationAlias } from "./modules/verificationAlias";
+import { SearchProviders, StorageType } from "./type";
 
 class Controller {
-  async getAll() {
-    //
-  }
-  async getConfig() {
-    //
-  }
-
-  /* --------------- TO DO ---------------------
-    todo: Magic String
-    todo: chrome.runtime.lastError del get
-    todo: if (needsUpdate) { updateDataURLs() } + chrome.runtime.lastError
-*/
-  async getURL() {
-    const { _dataURLs_ }: StorageType = await chrome.storage.local.get("_dataURLs_");
+  async getSearchProviders() {
+    const { searchProviders }: StorageType = await chrome.storage.local.get("searchProviders");
     if (chrome.runtime.lastError) {
-      //!--------------------------------------------------------------------------------
+      //!-------------------------------------------- Error de API
     }
 
-    const [processedData, needsUpdate] = this.#handlerFetchDataURL(_dataURLs_);
-
+    const { providers, needsUpdate } = this.#sanitizeProviders(searchProviders);
     if (needsUpdate) {
-      //!------------------------------------------------------------------------------- actualizar DB
+      //!-------------------------------------------- Actualizar DB (providers)
     }
 
-    return processedData;
+    return providers;
   }
 
-  #handlerFetchDataURL(dataURLs?: StorageDataURL[]): [ProcessedDataURL[], boolean] {
-    const provisionalInvalidData: ProcessedDataURL[] = [];
-    const provisionalValidData: ProcessedDataURL[] = [];
-    let processedData: ProcessedDataURL[] = [];
+  #sanitizeProviders(searchProviders: SearchProviders[]) {
+    const providers: SearchProviders[] = [];
     let needsUpdate = false;
 
-    if (!Array.isArray(dataURLs)) {
+    if (!Array.isArray(searchProviders)) {
       needsUpdate = true;
-      return [processedData, needsUpdate];
+      return { providers, needsUpdate }; //? --------- ¿o {providers: default} ?
     }
 
-    dataURLs.forEach(({ name: rawName, url: rawURL, id: rawId }, i, data) => {
-      if (typeof data[i] !== "object") {
+    searchProviders.forEach((provider) => {
+      if (typeof provider !== "object") {
         needsUpdate = true;
         return;
       }
 
-      const [name, update] = verificationName(rawName);
-      const [alert, url] = verificationURL(rawURL);
-
-      if (update) {
-        needsUpdate = true;
-      }
-
-      if (alert === URL_VALIDATION_STATUS.INVALID) {
+      if (!isValidURL(provider.url)) {
         needsUpdate = true;
         return;
       }
 
-      const newData: ProcessedDataURL = {
-        name: name,
-        url: url,
-        id: rawId,
-        alert: alert !== URL_VALIDATION_STATUS.SUCCES ? true : false,
+      const { alias, updateAlias } = verificationAlias(provider.alias);
+
+      if (updateAlias) {
+        needsUpdate = true;
+      }
+
+      const newProvider: SearchProviders = {
+        alias,
+        url: provider.url,
       };
 
-      newData.alert ? provisionalInvalidData.push(newData) : provisionalValidData.push(newData);
+      providers.push(newProvider);
     });
 
-    processedData = [...provisionalValidData, ...provisionalInvalidData];
-
-    needsUpdate = verificationId(processedData) ? true : needsUpdate;
-    return [processedData, needsUpdate];
+    return { providers, needsUpdate };
   }
 }
 
-export const storage = new Controller();
+export const controller = new Controller();

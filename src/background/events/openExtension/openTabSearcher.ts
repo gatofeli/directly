@@ -1,10 +1,7 @@
 /* --------------- To Do ----------------- 
-TODO: Refactorizar URL Magic String
-todo: mediante un parametro que se pueda optar por: NEW_TAB || CURRENT_TAB
-todo: generar el currentTab() ----> encapsular porque hara falta una validacion de que se pueda abrir en esa pestaña
+TODO: [Refactorizar Nombre]: openSearcherInNewTab
+TODO: Refactorizar URL ----> crear "variable centralizada"
 TODO: runtime.lastError
-
-TODO: testear
 */
 
 export function openTabSearcher() {
