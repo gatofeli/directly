@@ -12,6 +12,10 @@ export default defineConfig({
       input: {
         background: resolve(__dirname, "src/background/background.ts"),
         searcher: resolve(__dirname, "src/searcher/searcher.html"),
+        config_provider: resolve(__dirname, "src/config/provider/configProvider.html"),
+        config_theme: resolve(__dirname, "src/config/theme/configTheme.html"),
+        config_bug: resolve(__dirname, "src/config/reportBug/configBug.html"),
+        config_info: resolve(__dirname, "src/config/info/configInfo.html"),
       },
       output: {
         entryFileNames: (chunkInfo) => {
@@ -24,6 +28,7 @@ export default defineConfig({
         assetFileNames: "assets/[name].[ext]",
       },
     },
+    minify: false,
     sourcemap: true,
     outDir: "dist",
   },

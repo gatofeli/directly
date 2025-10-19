@@ -1,0 +1,18 @@
+.wrapper {
+  inline-size: 100%;
+
+  text-align: center;
+  color: #bdbdbdff;
+}
+
+.image {
+  inline-size: 250px;
+  margin-block-end: 1rem;
+}
+
+.message {
+  font-size: 1.5rem;
+}
+.message-span {
+  font-size: 2rem;
+}

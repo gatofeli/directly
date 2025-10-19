@@ -1,0 +1,39 @@
+.wrapper {
+  margin-inline: auto;
+  border: 1px solid var(--filament-color);
+  padding-inline: 3rem;
+  padding-block: 4rem;
+  inline-size: max-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.symbol {
+  color: var(--filament-color);
+  text-align: center;
+
+  font-size: 2rem;
+}
+.title {
+  padding-block-start: 1.4rem;
+  padding-block-end: 1rem;
+  color: #c0cbd4;
+}
+
+.text {
+  color: #c0cbd4;
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+}
+.list {
+  padding-block-start: 0.2rem;
+  padding-inline-start: 2rem;
+}
+.anchor {
+  color: rgb(127, 171, 212);
+
+  &:active {
+    color: red;
+  }
+}

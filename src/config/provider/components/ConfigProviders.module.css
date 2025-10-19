@@ -1,0 +1,99 @@
+.wrapper {
+  inline-size: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  /* overflow: auto; */
+}
+.section {
+  inline-size: 100%;
+  border: 6px solid transparent;
+  border-block-end: 4px solid var(--filament-color_2);
+}
+.title {
+  inline-size: 100%;
+
+  font-size: 2.8rem;
+  color: var(--filament-color_2);
+
+  text-align: center;
+}
+
+.enabled-list {
+  padding: 15px;
+  margin-block-end: 5px;
+
+  border-block-end: 2px solid var(--filament-color_2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.default-list {
+  padding: 15px;
+  margin-block-start: 10px;
+  margin-block-end: 5px;
+
+  border-block-end: 10px solid var(--filament-color_2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.error-saved {
+  inline-size: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  color: var(--config-color-text_3);
+  background-color: var(--config-color-delete_1-1);
+
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  & p {
+    padding-block: 1.5rem;
+    padding-inline-start: 3rem;
+    font-size: 1.3rem;
+  }
+
+  & button {
+    block-size: 25px;
+    inline-size: 25px;
+    min-inline-size: 25px;
+    min-block-size: 25px;
+
+    margin-block-start: 0.2rem;
+    margin-inline-end: 0.2rem;
+    padding: 0.2rem;
+
+    border: 1px solid var(--config-color-text_3);
+
+    background: none;
+    color: var(--config-color-text_3);
+
+    &:hover {
+      scale: 110%;
+      background-color: var(--config-color-delete_1-0);
+    }
+    &:focus {
+      outline: 2px solid black;
+      scale: 110%;
+
+      border: none;
+      background-color: var(--config-color-delete_1-0);
+    }
+
+    & svg {
+      block-size: 100%;
+      inline-size: 100%;
+      color: inherit;
+    }
+  }
+}

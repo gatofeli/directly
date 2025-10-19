@@ -24,7 +24,4 @@ dist-ssr
 *.sw?
 
 # Propios
-Referencias.md
-public/icons
 .tsconfig.tsbuildinfo
-TODO.js

@@ -1,17 +1,35 @@
 import { useEffect, useState } from "react";
-import { controller } from "../../utils/storage/Controller";
+import { ApiError, ApiOperation } from "../../utils/error/apiError";
+import { controller } from "../../utils/lib/storage/Controller";
 
 export function useListOfProviders() {
-  const [searchProviders, setSearchProviders] = useState([]);
-
-  const fetchProviders = async () => {
-    const newProviders = await controller.getSearchProviders();
-    setSearchProviders(newProviders);
-  };
+  const [providerList, setProviderList] = useState([]);
+  const [errorProviderList, setErrorProviderList] = useState(false);
 
   useEffect(() => {
-    fetchProviders();
+    fetchProviderList();
   }, []);
 
-  return { listOfProviders: searchProviders };
+  const fetchProviderList = async () => {
+    try {
+      const newProviders = await controller.fetchProviders();
+      setProviderList(newProviders);
+    } catch (error) {
+      if (error instanceof ApiError !== false) {
+        console.error("[searcher] Get provider list - unexpected error", error);
+        setErrorProviderList(true);
+        return;
+      }
+
+      if (error.operation === ApiOperation.STORAGE_SET) {
+        setProviderList(error.fallback);
+        return;
+      }
+
+      console.error("[searcher] Get provider list - Chrome API error", error);
+      setErrorProviderList(true);
+    }
+  };
+
+  return { providerList, errorProviderList };
 }

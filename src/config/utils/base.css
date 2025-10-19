@@ -1,0 +1,230 @@
+:root {
+  /*
+  menu 
+    -         --> background
+    - :active --> background
+
+  ProviderCompacted
+    -         --> background
+
+  ProviderExpanded
+    -         --> background
+
+  ProviderDefault > Element
+    -         --> background
+  */
+  --config-color-backdrop_1: #202124;
+
+  /*
+  main 
+    -         --> background
+
+  ProviderDefault > category > title
+    -         --> background
+  */
+  --config-color-backdrop_2: #292a2d;
+
+  /*
+  menu
+    - :focus --> background
+  */
+  --config-color-backdrop_5: #2b2b2f;
+
+  /*
+  ProviderExpanded > input (alias & url)
+    -    --> background
+  */
+  --config-color-backdrop_8-0: #303030;
+
+  /*
+  ProviderExpanded > input (alias & url)
+    - :focus --> background
+    - :hover --> background
+  */
+  --config-color-backdrop_8-1: #404040;
+
+  /* 
+  menu
+    - :NOT(.current):hover --> text
+  */
+  --config-color-backdrop_10: #212121;
+
+  /*
+  menu 
+    - .current:hover --> text, border-left
+
+  ProviderCompacted > svg
+    - :hover --> color
+
+  ProviderExpanded > svg (save)
+    - :hover --> color
+  
+  ProviderDefault > element > .disabled > animation
+    -     --> text, text-shadow
+  */
+  --filament-color_1: rgb(162, 114, 0);
+
+  /*
+  menu
+    - .current --> text, border-left
+    - :focus   --> outline
+    - :active  --> box-shadow
+
+  ConfigProviders > section
+    -   --> border-bottom
+
+  ProviderCompacted
+    - :focus-within --> box-shadow, text
+    
+  ProviderCompacted > svg
+    - :focus  --> color, outline
+    - :active --> color
+    
+  ProviderExpanded
+    - :focus-within --> box-shadow
+    
+  ProviderExpanded > (alias & url)
+    - :focus --> outline
+
+  ProviderExpanded > svg(save)
+    - :focus  --> color, outline
+    - :active --> color
+
+  ProviderDefault > element
+    - .enabled --> text
+
+  ProviderDefault > element > svg
+    - .enabled --> color
+    
+  ProviderDefault > element > .disabled > animation
+    - :active  --> text, text-shadow
+  */
+  --filament-color_2: rgb(214, 163, 42);
+
+  /*
+  menu
+    -    --> box-shadow
+  */
+  --filament-color_4: rgb(138, 113, 58);
+
+  /*
+  ProviderCompacted
+    -    --> border
+  
+  ProviderExpanded 
+    -    --> border
+  
+  ProviderExpanded > wrapper-url
+    -    --> border-top
+
+  ProviderDefault > category
+    - :open --> border-left & top
+
+  ProviderDefault > element
+    -       --> border
+
+  ProviderDefault > element
+    - .disabled           --> text , svg
+    - (hover en eliminar) --> text
+  */
+  --config-color-border: grey;
+
+  /*
+  menu 
+    - :active               --> text
+    - :NOT(.current)        --> text 
+    - :NOT(.current):hover  --> background
+  */
+  --config-color-text_1: #ababab;
+
+  /*
+  ProviderCompacted > title
+    -     --> text 
+
+  ProviderCompacted > svg
+    -     --> color 
+    
+  ProviderExpanded > url
+    -     --> text
+  
+  ProviderExpanded > svg
+    -     --> color 
+  */
+  --config-color-text_2: #d1d1d1;
+
+  /*
+  ProviderExpanded > alias
+    -        --> text
+    - :focus --> text
+  
+  ProviderExpanded > url
+    - :focus --> text 
+
+  ProviderDefault > category
+    -        --> text
+
+  ProviderDefault > Element
+  - :hover        --> box-shadow
+  - :focus-within --> box-shadow
+  */
+  --config-color-text_3: #f5f5f5;
+
+  /*
+  menu 
+  ConfigProviders (inherit) --> titles of sections
+  */
+  --font_1: sans-serif;
+
+  /*
+  ProviderCompacted
+  ProviderExpanded > alias
+  */
+  --font_2: "Times New Roman", Times, serif;
+
+  /*
+  ProviderExpanded > url
+  */
+  --font_3: Arial, Helvetica, sans-serif;
+
+  /*
+  ProviderDefault
+  */
+  --font_4: "Courier New", Courier, monospace;
+
+  /*!---------------------------------------------*/
+  --config-color-backdrop_3: #111114;
+  --config-color-backdrop_4: #1b1b1f;
+
+  --config-color-backdrop_7: #171717;
+  --config-color-backdrop_9: #181818;
+
+  --filament-color_3: rgb(214, 198, 23);
+
+  --config-color-error_url: rgb(236 100 77);
+  --config-color-delete_1-0: rgb(144, 66, 53);
+  --config-color-delete_1-1: rgb(113, 30, 30);
+  --config-color-ok_1-0: rgb(143, 144, 53);
+  --config-color-ok_1-1: rgb(155, 190, 30);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  position: fixed;
+  overflow-x: auto;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--config-color-backdrop_1);
+
+  display: flex;
+}
+
+li {
+  list-style: none;
+}

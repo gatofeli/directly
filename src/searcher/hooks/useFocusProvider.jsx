@@ -10,6 +10,8 @@ export function useFocusProvider() {
     const OPTIONS = {
       ArrowUp: () => prevProvider({ elements, currentIdx }),
       ArrowDown: () => nextProvider({ elements, currentIdx }),
+      ArrowLeft: () => undefined,
+      ArrowRight: () => undefined,
     };
 
     OPTIONS[arrow]();

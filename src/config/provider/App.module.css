@@ -1,0 +1,17 @@
+.main {
+  background-color: var(--config-color-backdrop_2);
+  flex: 1 0 auto;
+
+  font-family: sans-serif;
+
+  padding-block: 4vh;
+  padding-inline: 9%;
+
+  overflow: auto;
+}
+
+.critical-error {
+  align-content: center;
+  block-size: 100%;
+  inline-size: 100%;
+}

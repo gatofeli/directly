@@ -1,24 +1,24 @@
 {
   "manifest_version": 3,
   "author": "Alejandro Aranda Muñoz",
-  "name": "SpeedyBar",
-  "version": "0.0.1.1",
-  "version_name": "alpha 0 - PRE-FIX",
-  "description": "Accede o busca en tus webs favoritas de forma rápida, directa y sin pasos extra",
+  "name": "Directly",
+  "version": "0.0.1.0",
+  "version_name": "Beta 1 -Private-",
+  "description": "Accede o busca en tus webs favoritas al instante con un simple atajao de teclado. Sin pasos extra, directo a la home o a la consulta",
   "icons": {
-    "16": "icons/search_16.png",
-    "32": "icons/search_32.png",
-    "48": "icons/search_48.png",
-    "128": "icons/search_128.png"
+    "16": "assets/logo_16.png",
+    "32": "assets/logo_32.png",
+    "48": "assets/logo_48.png",
+    "128": "assets/logo_128.png"
   },
   "action": {
     "default_icon": {
-      "16": "icons/search_16.png",
-      "32": "icons/search_32.png",
-      "48": "icons/search_48.png",
-      "128": "icons/search_128.png"
+      "16": "assets/logo_16.png",
+      "32": "assets/logo_32.png",
+      "48": "assets/logo_48.png",
+      "128": "assets/logo_128.png"
     },
-    "default_title": "SpeedyBar"
+    "default_title": "Directly"
   },
   "permissions": ["storage"],
   "background": {
@@ -26,7 +26,7 @@
     "type": "module"
   },
   "commands": {
-    "openInSameTab": {
+    "openInNewTab": {
       "suggested_key": {
         "default": "Ctrl+Space",
         "windows": "Ctrl+Space",
@@ -34,17 +34,7 @@
         "chromeos": "Ctrl+Space",
         "mac": "Shift+Alt+Space"
       },
-      "description": "Abrir extensión en pestaña actual"
-    },
-    "openInNewTab": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Space",
-        "windows": "Ctrl+Shift+Space",
-        "linux": "Ctrl+Shift+Space",
-        "chromeos": "Ctrl+Shift+Space",
-        "mac": "Shift+Alt+N"
-      },
-      "description": "Abrir extensión en pestaña nueva"
+      "description": "Abrir extensión"
     }
   }
 }

@@ -1,14 +1,12 @@
 export async function navigateInSameTab(url: string, id?: number) {
-  if (typeof id !== "number") {
-    //! ------------------------------------------------------ Aviso
-    //! ------------------------------------------------------ navigateInNewTab()
-    return;
-  }
+  try {
+    if (typeof id !== "number") {
+      throw new Error("--------------------------------------------------------");
+    }
 
-  await chrome.tabs.update(id, { url });
-
-  if (chrome.runtime.lastError) {
-    //! ------------------------------------------------------ Aviso
-    //! ------------------------------------------------------ navigateInNewTab() ¿con setTimeout()?
+    await chrome.tabs.update(id, { url });
+  } catch {
+    //! ----------------------|number|---------- Aviso + navigateInNewTab()
+    //! ----------------------|API|------------- Aviso + navigateInNewTab() ¿con funcion contadora + setTimeout()?
   }
 }

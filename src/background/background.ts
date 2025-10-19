@@ -1,15 +1,14 @@
-import { STORAGE_KEYS } from "../utils/constants/storageKeys";
-import { KEY_MESSAGE, unionMessage } from "../utils/message/types";
+// import { STORAGE_KEYS } from "../utils/constants/storageKeys";
+import { KEY_MESSAGE, UnionMessage } from "../utils/lib/message/requestNavigation";
 import { navigateInNewTab } from "./events/message/navegation/navigateInNewTab";
 import { navigateInSameTab } from "./events/message/navegation/navigateInSameTab";
 import { openInNewTab } from "./events/searcher/openInNewTab";
 
-chrome.commands.onCommand.addListener((command, tab) => {
-  if (command === "openInSameTab" && tab.id) {
-    //todo: openInSameTab(tab.id....)
-  } else {
+chrome.commands.onCommand.addListener((command) => {
+  if (command === "openInNewTab") {
     openInNewTab();
-  }
+  } 
+  
 });
 chrome.action.onClicked.addListener(() => {
   //todo: revisar los commands
@@ -17,12 +16,12 @@ chrome.action.onClicked.addListener(() => {
   openInNewTab(); //todo: ------------ borrar
 });
 
-chrome.runtime.onMessage.addListener((msg: unionMessage, sender) => {
+chrome.runtime.onMessage.addListener((msg: UnionMessage, sender) => {
   try {
-    const typeMessage: KEY_MESSAGE | undefined = msg.typeMessage;
+    const { typeMessage } = msg;
+
     if (typeof typeMessage === "undefined") {
       //!--------------------------------- Error no hay typeMessage
-      return;
     }
 
     const ACTIONS = {
@@ -35,47 +34,71 @@ chrome.runtime.onMessage.addListener((msg: unionMessage, sender) => {
   }
 });
 
-chrome.runtime.onInstalled.addListener(async () => {
-  await chrome.storage.local.clear();
-  chrome.storage.local.set({
-    [STORAGE_KEYS.PROVIDERS]: [
-      {
-        alias: "Youtube",
-        url: "https://www.youtube.com/results?search_query=--shortcutSearchExtension--",
-      },
-      {
-        alias: "Twitch",
-        url: "https://www.twitch.tv/search?term=--shortcutSearchExtension--",
-      },
-      {
-        alias: "MDN",
-        url: "https://developer.mozilla.org/en-US/search?q=--shortcutSearchExtension--",
-      },
-      {
-        alias: "Extension",
-        url: "https://developer.chrome.com/s/results?hl=es-419&q=--shortcutSearchExtension--#gsc.tab=0&gsc.q=--shortcutSearchExtension--&gsc.sort=",
-      },
-      {
-        alias: "Github [Repo]",
-        url: "https://github.com/search?q=--shortcutSearchExtension--&type=repositories",
-      },
-      {
-        alias: "Github [User]",
-        url: "https://github.com/search?q=--shortcutSearchExtension--&type=users",
-      },
-      {
-        alias: "Anime.ac",
-        url: "https://animeflv.ac/animes/buscar/?nombre=--shortcutSearchExtension--",
-      },
-      {
-        alias: "Anime",
-        url: "https://www3.animeflv.net/browse?q=--shortcutSearchExtension--",
-      },
-      {
-        alias: "Aniwatch",
-        url: "https://aniwatchtv.to/search?keyword=--shortcutSearchExtension--",
-      },
-    ],
-    [STORAGE_KEYS.CONFIG]: {},
-  });
-});
+// chrome.runtime.onInstalled.addListener(async () => {
+//   await chrome.storage.local.clear();
+//   chrome.storage.local.set({
+//     [STORAGE_KEYS.PROVIDERS]: [
+//       {
+//         alias: "Youtube",
+//         url: "https://www.youtube.com/results?search_query=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Wikipedia",
+//         url: "https://es.wikipedia.org/wiki/--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Twitch",
+//         url: "https://www.twitch.tv/search?term=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "DeepL EN-ES",
+//         url: "https://www.deepl.com/es/translator#en/es/--DirectlyExtension--",
+//       },
+//       {
+//         alias: "DeepL ES-EN",
+//         url: "https://www.deepl.com/es/translator#es/en/--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Amazon",
+//         url: "https://www.amazon.es/s?k=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Github",
+//         url: "https://github.com/search?q=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "MDN",
+//         url: "https://developer.mozilla.org/en-US/search?q=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Chrome Extension",
+//         url: "https://developer.chrome.com/s/results?hl=es-419&q=--DirectlyExtension--#gsc.tab=0&gsc.q=--DirectlyExtension--&gsc.sort=",
+//       },
+//       {
+//         alias: "Spotify",
+//         url: "https://open.spotify.com/search/--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Anime Flv (calidad)",
+//         url: "https://animeflv.ac/animes/buscar/?nombre=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Anime Flv",
+//         url: "https://www3.animeflv.net/browse?q=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "Aniwatch",
+//         url: "https://aniwatchtv.to/search?keyword=--DirectlyExtension--",
+//       },
+//       {
+//         alias: "WikiDex",
+//         url: "https://www.wikidex.net/index.php?search=--DirectlyExtension--&title=Especial%3ABuscar&profile=advanced&fulltext=1&ns0=1",
+//       },
+//       {
+//         alias: "Netflix",
+//         url: "https://www.netflix.com/search?q=--DirectlyExtension--",
+//       },
+//     ],
+//     [STORAGE_KEYS.CONFIG]: {},
+//   });
+// });

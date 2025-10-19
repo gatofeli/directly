@@ -1,37 +1,32 @@
 import { useFocusProvider } from "../hooks/useFocusProvider";
 import { useSubmitProvider } from "../hooks/useSubmitProvider";
+import styles from "./ProviderList.module.css";
 
-export function ProviderList({ providers, setCtrlSubmit }) {
+export function ProviderList({ children, setCtrlSubmit }) {
   const { handleButtonClick, handleButtonKey } = useSubmitProvider({ setCtrlSubmit });
   const { listRef, changeFocus } = useFocusProvider();
 
   const handleChangeFocus = (event) => {
+    const ARROW_KEYS = ["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft"];
     const key = event.key || event.metaKey;
-    if (key === "ArrowDown" || key === "ArrowUp" || key === "ArrowRight" || key === "ArrowLeft") {
+
+    if (ARROW_KEYS.includes(key)) {
       event.preventDefault();
-    }
-    if (key === "ArrowDown" || key === "ArrowUp") {
       changeFocus(key);
     }
   };
 
   return (
-    <ul
-      className="providerList"
-      ref={listRef}
-      aria-label="Seleccionar el sitio web en donde se quiera realizar la búsqueda"
-      onKeyDown={handleChangeFocus}
-    >
-      {providers.map(({ alias, url }, index) => (
-        <li key={index}>
+    <ul className={styles["list"]} ref={listRef} onKeyDown={handleChangeFocus}>
+      {children.map(({ alias, url }) => (
+        <li key={url}>
           <button
             type="submit"
             name="provider"
-            className="provider"
+            className={styles["element"]}
             value={url}
             onClick={handleButtonClick}
             onKeyDown={handleButtonKey}
-            aria-label={`Navegar a ${alias}`}
           >
             {alias}
           </button>
