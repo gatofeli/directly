@@ -41,6 +41,6 @@
       "@background/*": ["src/background/*"]
     }
   },
-  "include": ["src/", "vite-env.d.ts"],
+  "include": ["src/", "mocks/setup.ts", "vite-env.d.ts"],
   "exclude": ["node_modules/", "coverage/", "dist/", "public/"]
 }

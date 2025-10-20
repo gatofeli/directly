@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Propios
-.tsconfig.tsbuildinfo
+tsconfig.tsbuildinfo
