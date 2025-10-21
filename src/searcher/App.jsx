@@ -21,7 +21,7 @@ export function App() {
           <HelpIcon />
         </a>
 
-        <a
+        <a hidden
           href="../../../../src/config/provider/configProvider.html"
           className={styles["footer-anchor"]}
           aria-label="Configuración"

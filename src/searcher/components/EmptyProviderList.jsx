@@ -12,13 +12,24 @@ export function EmptyProviderList() {
         <p className={styles["text"]}>Todo tiene solución:</p>
         <ul className={`${styles["text"]} ${styles["list"]}`}>
           <li>
-            Activa algunas de las webs por defecto que te proponemos,{" "}
+            Activa algunas de las webs predefinidas que te proponemos{" "}
             <a className={styles["anchor"]} href="../../../../src/config/provider/configProvider.html">
               desde la configuración.
             </a>
           </li>
 
           <li>
+            <p><span style={{ fontWeight: "bold", color: "#685b2ecc" }}>{"(Provisional) "}</span> Añade la web que prefieras, modificando la URL de una web activada.</p>
+            <p>Si modificaste una web predefinida podrás volvera a activarla.</p>
+          </li>
+
+          <br />
+
+          <li>
+            <span style={{ fontWeight: "bold", color: "#ad9332ff" }}>{"(Próximamente) "}</span> Añadir la web que prefieras directamente, sin entrar en la configuración.
+          </li>
+
+          <li hidden>
             Añade la web que más te interese{" "}
             <a className={styles["anchor"]} href="">
               siguiendo estos sencillos pasos.
