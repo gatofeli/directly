@@ -5,7 +5,7 @@ export function InBuild() {
     <div className={styles["wrapper"]}>
       <img
         className={styles["image"]}
-        src="/icons/build.png"
+        src="/assets/build.png"
         alt="Dibujo estilo 'cartoon' de un gato negro con patitas blancas, tiene puesto un casco de minero y está picando una pequeña roca."
       />
       <h1 className={styles["title"]}>Estamos trabajando en ello</h1>
