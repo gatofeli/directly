@@ -5,7 +5,7 @@ export function CriticalError() {
     <div className={styles["wrapper"]} role="alert">
       <img
         className={styles["image"]}
-        src="/icons/errorCat.png"
+        src="/assets/errorCat.png"
         alt="Dibujo estilo 'cartoon' de un gato tumbado boca arriba con cara de mareado, simbolizando un error crítico en la aplicación."
       />
       <p className={styles["message"]}>
