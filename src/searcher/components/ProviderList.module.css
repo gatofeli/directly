@@ -3,11 +3,12 @@
   grid-auto-flow: column;
   grid-template-rows: repeat(5, var(--provider-height));
   grid-auto-columns: var(--provider-width);
-  gap: 0.3rem;
+  gap: 0.6rem;
 
   list-style: none;
 }
 .element {
+  display: inline-block;
   inline-size: 100%;
   block-size: 100%;
 
@@ -21,6 +22,11 @@
 
   font-size: var(--text-size);
   color: #e2e1e1;
+  text-decoration: none;
+
+  align-content: center;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 
   &:focus {
     position: relative;
@@ -38,8 +44,18 @@
       0px 0px 7px 0px rgb(var(--light-first-color), var(--light-opacity-on)),
       0px 0px 7px 0px rgb(var(--light-second-color), var(--light-opacity-on));
   }
+
   &:hover {
     background: #3c4250;
-    cursor: pointer;
+  }
+
+  &:active {
+    background-color: var(--filament-color);
+    color: #22252b;
+    font-weight: bold;
+  }
+  &:visited {
+    color: rgb(138, 113, 58);
+    font-weight: bold;
   }
 }

@@ -3,7 +3,7 @@ import { useSubmitProvider } from "../hooks/useSubmitProvider";
 import styles from "./ProviderList.module.css";
 
 export function ProviderList({ children, setCtrlSubmit }) {
-  const { handleButtonClick, handleButtonKey } = useSubmitProvider({ setCtrlSubmit });
+  // const { handleButtonClick, handleButtonKey } = useSubmitProvider({ setCtrlSubmit }); //!------------------ posiblemente se borre parcialmente
   const { listRef, changeFocus } = useFocusProvider();
 
   const handleChangeFocus = (event) => {
@@ -16,22 +16,47 @@ export function ProviderList({ children, setCtrlSubmit }) {
     }
   };
 
+  const handleClick = () => {
+    return
+  }
+
   return (
     <ul className={styles["list"]} ref={listRef} onKeyDown={handleChangeFocus}>
       {children.map(({ alias, url }) => (
         <li key={url}>
-          <button
-            type="submit"
-            name="provider"
+          <a href={url}
+            rel="noopener noreferrer nofollow"
             className={styles["element"]}
-            value={url}
-            onClick={handleButtonClick}
-            onKeyDown={handleButtonKey}
-          >
+            onClick={handleClick}
+            onKeyDown={handleChangeFocus}>
             {alias}
-          </button>
+          </a>
         </li>
       ))}
     </ul>
   );
+
+
+  /*
+    return (
+      <ul className={styles["list"]} ref={listRef} onKeyDown={handleChangeFocus}>
+        {children.map(({ alias, url }) => (
+          <li key={url}>
+
+            <button
+              type="submit"
+              name="provider"
+              className={styles["element"]}
+              value={url}
+              onClick={handleButtonClick}
+              onKeyDown={handleButtonKey}
+            >
+              {alias}
+            </button>
+            
+          </li>
+        ))}
+      </ul>
+    );
+    */
 }
