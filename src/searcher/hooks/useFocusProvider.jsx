@@ -1,32 +1,29 @@
-import { useRef } from "react";
+import { calcNewFocus } from "@searcher/logic/getFocusable";
+import { useRef, useEffect } from "react";
 
 export function useFocusProvider() {
-  const listRef = useRef();
+  const containerRef = useRef(null);
+  const anchorsRef = useRef([]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    containerRef.current.querySelector("a")?.focus();
+    anchorsRef.current = Array.from(containerRef.current.querySelectorAll("a"))
+  }, []);
 
   const changeFocus = (arrow) => {
-    const elements = Array.from(listRef.current.querySelectorAll("button"));
-    const currentIdx = elements.indexOf(document.activeElement);
+    const list = anchorsRef.current
+    if (list.length === 0) return;
 
-    const OPTIONS = {
-      ArrowUp: () => prevProvider({ elements, currentIdx }),
-      ArrowDown: () => nextProvider({ elements, currentIdx }),
-      ArrowLeft: () => undefined,
-      ArrowRight: () => undefined,
-    };
+    const currentIdx = list.indexOf(document.activeElement);
+    if (currentIdx === -1) {
+      list[0]?.focus()
+      return
+    }
 
-    OPTIONS[arrow]();
+    const newTargetFocusable = calcNewFocus(list, currentIdx, arrow)
+    newTargetFocusable?.focus();
   };
 
-  const prevProvider = ({ elements, currentIdx }) => {
-    const wrappedIndex = currentIdx === 0 ? elements.length : currentIdx;
-
-    elements[wrappedIndex - 1].focus();
-  };
-  const nextProvider = ({ elements, currentIdx }) => {
-    const wrappedIndex = currentIdx === elements.length - 1 ? 0 : currentIdx + 1;
-
-    elements[wrappedIndex].focus();
-  };
-
-  return { listRef, changeFocus };
+  return { containerRef, changeFocus };
 }

@@ -2,9 +2,9 @@ import { useFocusProvider } from "../hooks/useFocusProvider";
 import { useSubmitProvider } from "../hooks/useSubmitProvider";
 import styles from "./ProviderList.module.css";
 
-export function ProviderList({ children, setCtrlSubmit }) {
+export function ProviderList({ children }) {
   // const { handleButtonClick, handleButtonKey } = useSubmitProvider({ setCtrlSubmit }); //!------------------ posiblemente se borre parcialmente
-  const { listRef, changeFocus } = useFocusProvider();
+  const { containerRef, changeFocus } = useFocusProvider();
 
   const handleChangeFocus = (event) => {
     const ARROW_KEYS = ["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft"];
@@ -21,14 +21,13 @@ export function ProviderList({ children, setCtrlSubmit }) {
   }
 
   return (
-    <ul className={styles["list"]} ref={listRef} onKeyDown={handleChangeFocus}>
+    <ul className={styles["list"]} ref={containerRef} onKeyDown={handleChangeFocus}>
       {children.map(({ alias, url }) => (
         <li key={url}>
           <a href={url}
             rel="noopener noreferrer nofollow"
             className={styles["element"]}
-            onClick={handleClick}
-            onKeyDown={handleChangeFocus}>
+            onClick={handleClick}>
             {alias}
           </a>
         </li>

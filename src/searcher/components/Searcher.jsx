@@ -1,14 +1,21 @@
 import { SearchIcon } from "../../utils/icons/SearchIcon";
-import { useHandleForm } from "../hooks/useHandleForm";
+import { useToggleList } from "../hooks/useToggleList";
 import { ProviderList } from "./ProviderList";
 import styles from "./Searcher.module.css";
 
 export function Searcher({ children }) {
-  const { isHiddenProviders, hiddenProvidersList, setCtrlSubmit, handleSubmit } = useHandleForm();
+  const { isVisibleList, hiddenList, showList } = useToggleList();
+  //todo: -------------------------------------------------------------------- generar un hook: manipular-lista
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    //todo: ------------------------------------------------------------------ Llamar a hook: manipular-lista
+    showList()
+  }
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={styles["search-wrapper"]} aria-expanded={!isHiddenProviders} aria-controls="providerWrapper">
+      <div className={styles["search-wrapper"]} aria-expanded={isVisibleList} aria-controls="navProviderList">
         <input
           type="search"
           name="query"
@@ -17,26 +24,38 @@ export function Searcher({ children }) {
           placeholder="[ENTER] / 'Galletas en el microondas'"
           autoFocus
           maxLength="500"
-          onFocus={hiddenProvidersList}
+          onFocus={hiddenList}
         />
         <button
           type="submit"
-          onFocus={hiddenProvidersList}
+          onFocus={hiddenList}
           className={styles["search-btn"]}
-          aria-label="Siguiente paso"
+          aria-label="Mostrar listado de webs"
         >
           <SearchIcon />
         </button>
       </div>
 
-      <nav
+      {isVisibleList && (
+        <nav
+          id="navProviderList"
+          className={styles["provider-wrapper"]}
+        >
+          <ProviderList>{children}</ProviderList>
+        </nav>
+      )}
+
+
+
+
+      {/* <nav
         id="providerWrapper"
         className={styles["provider-wrapper"]}
         hidden={isHiddenProviders}
-        aria-hidden={isHiddenProviders}
       >
-        <ProviderList setCtrlSubmit={setCtrlSubmit}>{children}</ProviderList>
-      </nav>
+        <ProviderList>{children}</ProviderList>
+      </nav> */}
+
     </form>
   );
 }
