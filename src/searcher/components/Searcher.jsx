@@ -1,3 +1,4 @@
+import { useWebList } from "@searcher/hooks/useWebList";
 import { SearchIcon } from "../../utils/icons/SearchIcon";
 import { useToggleList } from "../hooks/useToggleList";
 import { ProviderList } from "./ProviderList";
@@ -5,11 +6,12 @@ import styles from "./Searcher.module.css";
 
 export function Searcher({ children }) {
   const { isVisibleList, hiddenList, showList } = useToggleList();
-  //todo: -------------------------------------------------------------------- generar un hook: manipular-lista
+  const { webList, generateList } = useWebList(children)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    //todo: ------------------------------------------------------------------ Llamar a hook: manipular-lista
+    const userQuery = new FormData(event.target).get("query")
+    generateList(userQuery)
     showList()
   }
 
@@ -36,25 +38,14 @@ export function Searcher({ children }) {
         </button>
       </div>
 
-      {isVisibleList && (
+      {(isVisibleList && webList.length > 0) && (
         <nav
           id="navProviderList"
           className={styles["provider-wrapper"]}
         >
-          <ProviderList>{children}</ProviderList>
+          <ProviderList>{webList}</ProviderList>
         </nav>
       )}
-
-
-
-
-      {/* <nav
-        id="providerWrapper"
-        className={styles["provider-wrapper"]}
-        hidden={isHiddenProviders}
-      >
-        <ProviderList>{children}</ProviderList>
-      </nav> */}
 
     </form>
   );
