@@ -1,52 +1,42 @@
-import { useWebList } from "@searcher/hooks/useWebList";
 import { SearchIcon } from "../../utils/icons/SearchIcon";
-import { useToggleList } from "../hooks/useToggleList";
+import { useDialog } from "../hooks/useDialog";
 import { ProviderList } from "./ProviderList";
 import styles from "./Searcher.module.css";
 
 export function Searcher({ children }) {
-  const { isVisibleList, hiddenList, showList } = useToggleList();
-  const { webList, generateList } = useWebList(children)
+  const { list, prepareList, closeList } = useDialog(children);
 
   const handleSubmit = (event) => {
     event.preventDefault()
     const userQuery = new FormData(event.target).get("query")
-    generateList(userQuery)
-    showList()
+    prepareList(userQuery)
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className={styles["search-wrapper"]} aria-expanded={isVisibleList} aria-controls="navProviderList">
+    <search>
+      <form onSubmit={handleSubmit} className={styles["form"]}>
         <input
           type="search"
           name="query"
           className={styles["search-box"]}
-          aria-label="Consulta"
           placeholder="[ENTER] / 'Galletas en el microondas'"
+          aria-label="Buscar"
+          autoComplete="on"
+          maxLength={500}
+          onFocus={closeList}
           autoFocus
-          maxLength="500"
-          onFocus={hiddenList}
         />
-        <button
-          type="submit"
-          onFocus={hiddenList}
-          className={styles["search-btn"]}
-          aria-label="Mostrar listado de webs"
-        >
-          <SearchIcon />
+
+        <button type="submit" className={styles["search-btn"]} onFocus={closeList} aria-label="Mostrar lista de resultados">
+          <SearchIcon aria-hidden="true" />
         </button>
-      </div>
+      </form >
 
-      {(isVisibleList && webList.length > 0) && (
-        <nav
-          id="navProviderList"
-          className={styles["provider-wrapper"]}
-        >
-          <ProviderList>{webList}</ProviderList>
+      <dialog closedby="none" className={styles["dialog"]}>
+        <nav className={styles["nav-dialog"]} aria-label="Resultados de búsqueda" >
+          {list.length > 0 && <ProviderList>{list}</ProviderList>}
         </nav>
-      )}
-
-    </form>
+      </dialog>
+    </search>
   );
 }

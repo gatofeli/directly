@@ -5,6 +5,6 @@ export async function openInNewTab() {
       active: true,
     });
   } catch {
-    //!--------------------------- Aviso +  ¿ funcion contadora + setTimeout() ?
+    //!--------------------------- Manejar el error
   }
 }

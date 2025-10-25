@@ -3,10 +3,10 @@ import { HelpIcon } from "../utils/icons/HelpIcon";
 import styles from "./App.module.css";
 import { ExceptionSearcherProvider } from "./components/ExceptionSearcherProvider";
 import { Searcher } from "./components/Searcher";
-import { useListOfProviders } from "./hooks/useListOfProviders";
+import { useProviders } from "./hooks/useProviders";
 
 export function App() {
-  const { providerList, errorProviderList } = useListOfProviders();
+  const { providerList, errorProviderList } = useProviders();
 
   return errorProviderList || providerList.length === 0 ? (
     <ExceptionSearcherProvider>{errorProviderList}</ExceptionSearcherProvider>
@@ -17,11 +17,14 @@ export function App() {
       </main>
 
       <footer className={styles["footer"]}>
-        <a href="#" className={styles["footer-anchor"]} aria-label="Ayuda">
+        <a hidden
+          href="#"
+          className={styles["footer-anchor"]}
+          aria-label="Ayuda">
           <HelpIcon />
         </a>
 
-        <a hidden
+        <a
           href="../../../../src/config/provider/configProvider.html"
           className={styles["footer-anchor"]}
           aria-label="Configuración"

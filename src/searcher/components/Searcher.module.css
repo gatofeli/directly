@@ -1,4 +1,4 @@
-.search-wrapper {
+.form {
   inline-size: 100%;
 
   border-radius: 1rem;
@@ -68,12 +68,11 @@
   margin: 5px;
   border-inline-start: 2px solid grey;
 
-  background: url(../icons/icons8-cancel-off.svg) center no-repeat;
+  background: url(../assets/icon-cancel-off.svg) center no-repeat;
 }
 .search-box:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button:hover {
-  background: url(../icons/icons8-cancel-on.svg) center no-repeat;
+  background: url(../assets/icon-cancel-on.svg) center no-repeat;
 }
-
 .search-btn {
   inline-size: var(--search-size);
   block-size: var(--search-size);
@@ -105,7 +104,10 @@
   }
 }
 
-.provider-wrapper {
+.dialog {
+  position: static;
+}
+.nav-dialog {
   margin-block-start: 0.8rem;
   margin-inline: auto;
   inline-size: max-content;

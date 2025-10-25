@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ApiError, ApiOperation } from "../../utils/error/apiError";
 import { controller } from "../../utils/lib/storage/Controller";
 
-export function useListOfProviders() {
+export function useProviders() {
   const [providerList, setProviderList] = useState([]);
   const [errorProviderList, setErrorProviderList] = useState(false);
 

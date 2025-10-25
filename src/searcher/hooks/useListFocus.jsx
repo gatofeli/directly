@@ -1,13 +1,12 @@
-import { calcNewFocus } from "@searcher/logic/getFocusable";
+import { getNextFocusTarget } from "@searcher/logic/getNextFocusTarget";
 import { useRef, useEffect } from "react";
 
-export function useFocusProvider() {
+export function useListFocus() {
   const containerRef = useRef(null);
   const anchorsRef = useRef([]);
 
   useEffect(() => {
     if (!containerRef.current) return;
-    containerRef.current.querySelector("a")?.focus();
     anchorsRef.current = Array.from(containerRef.current.querySelectorAll("a"))
   }, []);
 
@@ -21,8 +20,8 @@ export function useFocusProvider() {
       return
     }
 
-    const newTargetFocusable = calcNewFocus(list, currentIdx, arrow)
-    newTargetFocusable?.focus();
+    const newFocus = getNextFocusTarget(list, currentIdx, arrow)
+    newFocus?.focus();
   };
 
   return { containerRef, changeFocus };
