@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ApiError, ApiOperation } from "../../utils/error/apiError";
 import { controller } from "../../utils/lib/storage/Controller";
 
-export function useProviders() {
+export function useAppGetData() {
   const [providerList, setProviderList] = useState([]);
   const [errorProviderList, setErrorProviderList] = useState(false);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchProviderList = async () => {
       try {
-        //*---------- Descomentar
-        // const newProviders = await controller.fetchProviders(); 
+        //*---------- Codigo para Build
+        // const newProviders = await controller.fetchProviders();
 
-        //!---------- Eliminar
+        //!---------- Mock para Desarrollo
         const newProviders = [
           {
             alias: "Youtube",
@@ -76,10 +77,14 @@ export function useProviders() {
           },
         ];
 
+        //!---------- Mock para Desarrollo EMPTY
+        // const newProviders = [];
+
 
         setProviderList(newProviders);
+        setErrorProviderList(false)
       } catch (error) {
-        if (error instanceof ApiError !== false) {
+        if (error instanceof ApiError === false) {
           console.error("[searcher] Get provider list - unexpected error", error);
           setErrorProviderList(true);
           return;
@@ -87,18 +92,22 @@ export function useProviders() {
 
         if (error.operation === ApiOperation.STORAGE_SET) {
           setProviderList(error.fallback);
+          setErrorProviderList(false)
+
           return;
         }
 
         console.error("[searcher] Get provider list - Chrome API error", error);
         setErrorProviderList(true);
+      } finally {
+        setLoading(false)
       }
-    };
+    }
 
     fetchProviderList();
   }, []);
 
 
 
-  return { providerList, errorProviderList };
+  return { providerList, errorProviderList, loading };
 }

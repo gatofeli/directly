@@ -1,15 +1,15 @@
+import { useList } from "@searcher/hooks/useList";
+import { List } from "./List";
 import { SearchIcon } from "../../utils/icons/SearchIcon";
-import { useDialog } from "../hooks/useDialog";
-import { ProviderList } from "./ProviderList";
 import styles from "./Searcher.module.css";
 
 export function Searcher({ children }) {
-  const { list, prepareList, closeList } = useDialog(children);
+  const { showList, closeList, list, dialogNavRef } = useList(children);
 
   const handleSubmit = (event) => {
     event.preventDefault()
     const userQuery = new FormData(event.target).get("query")
-    prepareList(userQuery)
+    showList(userQuery)
   }
 
   return (
@@ -32,9 +32,9 @@ export function Searcher({ children }) {
         </button>
       </form >
 
-      <dialog closedby="none" className={styles["dialog"]}>
+      <dialog ref={dialogNavRef} closedby="none" className={styles["dialog"]}>
         <nav className={styles["nav-dialog"]} aria-label="Resultados de búsqueda" >
-          {list.length > 0 && <ProviderList>{list}</ProviderList>}
+          {list.length > 0 && <List>{list}</List>}
         </nav>
       </dialog>
     </search>

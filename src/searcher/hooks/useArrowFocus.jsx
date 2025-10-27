@@ -1,7 +1,7 @@
 import { getNextFocusTarget } from "@searcher/logic/getNextFocusTarget";
 import { useRef, useEffect } from "react";
 
-export function useListFocus() {
+export function useArrowFocus() {
   const containerRef = useRef(null);
   const anchorsRef = useRef([]);
 

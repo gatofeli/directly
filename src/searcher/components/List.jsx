@@ -1,8 +1,8 @@
-import { useListFocus } from "../hooks/useListFocus";
-import styles from "./ProviderList.module.css";
+import { useArrowFocus } from "@searcher/hooks/useArrowFocus";
+import styles from "./List.module.css";
 
-export function ProviderList({ children }) {
-  const { containerRef, changeFocus } = useListFocus();
+export function List({ children }) {
+  const { containerRef, changeFocus } = useArrowFocus();
 
   const handleChangeFocus = (event) => {
     const ARROW_KEYS = ["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft"];
