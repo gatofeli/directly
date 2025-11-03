@@ -3,14 +3,14 @@
   --search-color: #23272f;
   --searchWrapper-shadow-top-color: #383e4b;
   --searchWrapper-shadow-bottom-color: #0e1013;
-  --search-size: 3rem;
+  --search-size: 3.6rem;
   --light-out-position: 0px 0px 20px;
   --light-inset-position: inset 0px 0px 10px;
   --light-first-color: 255, 213, 59;
   --light-second-color: 255, 102, 0;
   --light-opacity-off: 0%;
   --light-opacity-on: 50%;
-  --text-size: 1rem;
+  --text-size: 1.1rem;
   --filament-color: #ffd43b;
   --text-user-focus-color: #ffffff;
   --text-user-blur-color: #7c827f;
@@ -22,6 +22,4 @@
 }
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }

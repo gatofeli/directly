@@ -13,7 +13,7 @@ export function useAppGetData() {
         //*---------- Codigo para Build
         // const newProviders = await controller.fetchProviders();
 
-        //!---------- Mock para Desarrollo
+        //!---------- Mock para Desarrollo APP
         const newProviders = [
           {
             alias: "Youtube",

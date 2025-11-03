@@ -1,5 +1,7 @@
+import styles from './Loading.module.css'
+
 export function Loading() {
   return (
-    <p>Cargando...</p>
+    <p className={styles['message']}>Cargando...</p>
   )
 }

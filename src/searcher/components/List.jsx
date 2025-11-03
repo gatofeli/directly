@@ -20,19 +20,24 @@ export function List({ children }) {
   }
 
   return (
-    <ul className={styles["list"]} ref={containerRef} onKeyDown={handleChangeFocus}>
-      {children.map(({ alias, url }, index) => (
-        <li key={index}>
-          <a href={url}
-            rel="noopener noreferrer nofollow"
-            className={styles["element"]}
-            onClick={handleClick}
-            autoFocus={index === 0}
-          >
-            {alias}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <nav className={styles["nav"]} aria-label="Resultados de búsqueda" >
+
+      <ul className={styles["list"]} ref={containerRef} onKeyDown={handleChangeFocus}>
+
+        {children.map(({ alias, url }, index) => (
+          <li key={index}>
+            <a className={styles["element"]}
+
+              href={url}
+              rel="noopener noreferrer nofollow"
+              onClick={handleClick}
+              autoFocus={index === 0}
+            >
+              {alias}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

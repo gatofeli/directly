@@ -1,13 +1,29 @@
-.form {
+.wrapper {
+  inline-size: 97dvw;
+  margin-inline: auto;
+
+  padding-block: 2vh;
+  padding-inline: 1rem;
+
+  border-radius: 1.6rem;
+  border: 1px solid rgba(72, 96, 133, 0.199);
+  border-block-end: none;
+
+  background-color: #23272f7e;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+
+.search-box {
   inline-size: 100%;
 
   border-radius: 1rem;
   padding: 0.3rem;
 
-  background: linear-gradient(173deg, var(--search-color) 0%, #14161a 100%);
-  box-shadow:
-    10px 10px 20px var(--searchWrapper-shadow-bottom-color),
-    -10px -10px 40px var(--searchWrapper-shadow-top-color);
+  background: linear-gradient(169deg, #202124, #14161a);
 
   color: var(--text-user-blur-color);
 
@@ -20,7 +36,7 @@
   }
 }
 
-.search-box {
+.input {
   block-size: var(--search-size);
   border: 1px solid transparent;
   border-radius: 0.8rem 0 0 0.8rem;
@@ -59,7 +75,8 @@
     color: var(--text-user-focus-color);
   }
 }
-.search-box:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button {
+
+.input:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button {
   appearance: none;
   cursor: pointer;
 
@@ -70,10 +87,11 @@
 
   background: url(../assets/icon-cancel-off.svg) center no-repeat;
 }
-.search-box:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button:hover {
+.input:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button:hover {
   background: url(../assets/icon-cancel-on.svg) center no-repeat;
 }
-.search-btn {
+
+.btn {
   inline-size: var(--search-size);
   block-size: var(--search-size);
 
@@ -104,11 +122,35 @@
   }
 }
 
+.wrapper:has(.dialog[open]) {
+  border: none;
+  border-block-end: 1px solid #46381d73;
+  background-color: #23272f7e;
+
+  & .search-box {
+    color: #614f2a;
+    background: linear-gradient(169deg, #23272f, #161a1f);
+  }
+}
+
 .dialog {
   position: static;
-}
-.nav-dialog {
-  margin-block-start: 0.8rem;
-  margin-inline: auto;
-  inline-size: max-content;
+  border: 1px solid rgb(48, 48, 48);
+
+  padding: 4px;
+
+  box-shadow: 0px 0px 18px 1px var(--searchWrapper-shadow-bottom-color);
+
+  background-color: #202329;
+
+  &:focus-within,
+  &:hover {
+    border-color: var(--filament-color);
+
+    box-shadow:
+      inset 0px 0px 15px rgb(var(--light-second-color), var(--light-opacity-on)),
+      inset 0px 0px 5px rgb(var(--light-first-color), var(--light-opacity-on)),
+      0 0 5px rgb(var(--light-first-color), var(--light-opacity-on)),
+      0 0 5px rgb(var(--light-second-color), var(--light-opacity-on));
+  }
 }

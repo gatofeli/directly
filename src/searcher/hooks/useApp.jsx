@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { getStatusApp } from "@searcher/logic/getStatusApp";
+import { getStatusApp, STATUS_MODAL } from "@searcher/logic/getStatusApp";
 import { useAppGetData } from "./useAppGetData";
+
 
 export function useApp() {
   const { providerList, errorProviderList, loading } = useAppGetData();
-  const [status, setStatus] = useState('loading')
+  const [status, setStatus] = useState(STATUS_MODAL.LOADING)
   const dialogRef = useRef(null)
 
   useEffect(() => {
