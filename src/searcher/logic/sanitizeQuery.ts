@@ -1,4 +1,4 @@
-import { MAX_LENGTH_QUERY } from "../../utils/constants/default";
+import { MAX_LENGTH_QUERY } from "@utils/constants/default";
 
 export function sanitizeQuery(queryInput: string | null) {
   const rawQuery = typeof queryInput === "string" ? queryInput : "";

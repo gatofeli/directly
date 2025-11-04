@@ -1,4 +1,4 @@
-import { EXTENSION_KEYWORD_REGEX_G } from "../../utils/constants/regex";
+import { EXTENSION_KEYWORD_REGEX_G } from "@utils/constants/regex";
 
 export function buildSearchURL(query: string, provider: string) {
   EXTENSION_KEYWORD_REGEX_G.lastIndex = 0;

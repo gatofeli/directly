@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import { getStatusApp, STATUS_MODAL } from "@searcher/logic/getStatusApp";
+import { getStatusModal, STATUS_MODAL } from "@searcher/logic/getStatusModal";
 import { useAppGetData } from "./useAppGetData";
+import { useEffect, useRef, useState } from "react";
 
 
 export function useApp() {
@@ -19,10 +19,10 @@ export function useApp() {
   }, [])
 
   useEffect(() => {
-    const currentMode = getStatusApp(providerList, errorProviderList, loading)
+    const currentMode = getStatusModal(providerList, errorProviderList, loading)
     setStatus(currentMode)
   }, [providerList, errorProviderList, loading])
 
 
-  return { dialogRef, status, providerList }
+  return { dialogRef, status, providerList, STATUS_MODAL }
 }

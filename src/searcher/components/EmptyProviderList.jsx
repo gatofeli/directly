@@ -2,7 +2,7 @@ import styles from "./EmptyProviderList.module.css";
 
 export function EmptyProviderList() {
   return (
-    <div className={styles["wrapper"]}>
+    <>
       <p className={styles["symbol"]} aria-hidden="true">
         ^◔ᴥ◔^
       </p>
@@ -39,6 +39,6 @@ export function EmptyProviderList() {
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 }

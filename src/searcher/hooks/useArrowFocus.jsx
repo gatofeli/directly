@@ -1,5 +1,5 @@
-import { getNextFocusTarget } from "@searcher/logic/getNextFocusTarget";
-import { useRef, useEffect } from "react";
+import { ARROW_KEY, getNextFocusTarget } from "@searcher/logic/getNextFocusTarget";
+import { useEffect, useRef } from "react";
 
 export function useArrowFocus() {
   const containerRef = useRef(null);
@@ -24,5 +24,5 @@ export function useArrowFocus() {
     newFocus?.focus();
   };
 
-  return { containerRef, changeFocus };
+  return { containerRef, changeFocus, ARROW_KEY };
 }

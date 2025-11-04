@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { useListModifier } from "./useListModifier";
+import { useListGenerate } from "./useListGenerate";
 
-export function useList(rawProviderList) {
-  const { list, generateList, resetList } = useListModifier(rawProviderList)
+export function useListVisibility(rawProviderList) {
+  const { list, generateList, resetList } = useListGenerate(rawProviderList)
   const dialogNavRef = useRef(null)
 
   useEffect(() => {

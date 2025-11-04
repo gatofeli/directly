@@ -16,6 +16,7 @@
 
   color: var(--text-user-blur-color);
   background-color: #21252b;
+  outline: none;
 
   &:hover,
   &:focus {

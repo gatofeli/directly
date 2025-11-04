@@ -1,6 +1,6 @@
+import { ApiError, ApiOperation } from "@utils/error/apiError";
+import { controller } from "@utils/lib/storage/Controller";
 import { useEffect, useRef, useState } from "react";
-import { ApiError, ApiOperation } from "../../utils/error/apiError";
-import { controller } from "../../utils/lib/storage/Controller";
 
 export function useAppGetData() {
   const [providerList, setProviderList] = useState([]);

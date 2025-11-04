@@ -1,25 +1,24 @@
 .nav {
   padding: 30px;
 
-  background-color: #1a1d22;
-
-  border: 1px solid #2b230d;
-
   box-shadow:
     inset 2px 2px 8px var(--searchWrapper-shadow-bottom-color),
     inset -5px -5px 4px #191c22;
+
+  background-color: #1a1d22;
+  border: 1px solid #2b230d;
 }
 .list {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, var(--provider-height));
   grid-auto-columns: var(--provider-width);
   gap: 0.7rem;
-
-  padding: 0;
-  margin: 0;
-
-  list-style: none;
 }
 .element {
   display: inline-block;

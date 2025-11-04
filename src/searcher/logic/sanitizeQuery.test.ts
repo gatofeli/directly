@@ -1,4 +1,4 @@
-import { MAX_LENGTH_QUERY } from "../../utils/constants/default";
+import { MAX_LENGTH_QUERY } from "@utils/constants/default";
 import { sanitizeQuery } from "./sanitizeQuery";
 
 describe("A value different from the original value of the 'queryInput' prop will be returned when", () => {

@@ -2,7 +2,7 @@ import { buildSearchURL } from "@searcher/logic/buildSearchURL";
 import { sanitizeQuery } from "@searcher/logic/sanitizeQuery";
 import { useState } from "react";
 
-export function useListModifier(rawProviderList) {
+export function useListGenerate(rawProviderList) {
   const [list, setList] = useState([])
 
   const generateList = (userQuery) => {
