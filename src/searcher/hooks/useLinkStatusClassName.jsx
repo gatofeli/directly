@@ -1,8 +1,9 @@
 import { useState } from "react"
 
 export function useLinkStatusClassName() {
-  const [statusLink, setStatusLink] = useState('')
-  const ENTER_KEY = "Enter"
+  const [statusLink, setStatusLink] = useState('');
+  const ENTER_KEY = "Enter";
+  const META_KEY = "Meta";
 
   const styleActive = () => {
     setStatusLink('active-key')
@@ -12,5 +13,5 @@ export function useLinkStatusClassName() {
     setStatusLink('visited')
   }
 
-  return { statusLink, styleActive, styleVisited, ENTER_KEY }
+  return { statusLink, styleActive, styleVisited, ENTER_KEY, META_KEY }
 }

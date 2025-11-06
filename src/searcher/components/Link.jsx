@@ -4,17 +4,16 @@ import styles from "./Link.module.css";
 useLinkStatusClassName
 
 export function Link({ alias, url, index }) {
-  const { statusLink, styleActive, styleVisited, ENTER_KEY } = useLinkStatusClassName()
+  const { statusLink, styleActive, styleVisited, ENTER_KEY, META_KEY } = useLinkStatusClassName()
 
   const handleEnterDown = (event) => {
     const key = event.key;
-    if (key !== ENTER_KEY) return;
-    styleActive();
+    if (key === ENTER_KEY) styleActive();
   }
   const handleEnterUp = (event) => {
     const key = event.key;
-    if (key !== ENTER_KEY) return;
-    styleVisited();
+    if (key === ENTER_KEY || key === META_KEY) styleVisited();
+
   }
 
   const handleClick = (event) => {
