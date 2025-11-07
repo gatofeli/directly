@@ -1,4 +1,13 @@
 :root {
+  --autofill-cover: 0 0 0px 1000px #23272f inset;
+  --input-volume: 5px 5px 10px #383e4b inset, -5px -5px 10px #0e1013 inset;
+  --input-glow-external-off: 0 0 20px #ffd53b00, 0 0 20px #ff660000;
+  --input-glow-internal-off: 0 0 10px #ffd53b00 inset, 0 0 10px #ff660000 inset;
+  --input-glow-external-on: 0 0 20px #ffd53b, 0 0 20px #ff6600;
+  --input-glow-internal-on: 0 0 10px #ffd53b inset, 0 0 10px #ff6600 inset;
+
+  /* --------------------------------------- */
+
   --layout-tab-color: #101215;
   --search-color: #23272f;
   --searchWrapper-shadow-top-color: #383e4b;
