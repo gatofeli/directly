@@ -6,13 +6,6 @@ export function Footer() {
 
   return (
     <footer className={styles["wrapper"]}>
-      <a
-        href="#"
-        className={styles["anchor"]}
-        aria-label="Ayuda">
-        <HelpIcon />
-      </a>
-
       {/* <a hidden
         href="#"
         className={styles["anchor"]}
