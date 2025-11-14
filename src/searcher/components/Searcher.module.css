@@ -1,13 +1,31 @@
-.search-wrapper {
+.wrapper {
+  inline-size: 100dvw;
+  margin-inline: auto;
+
+  padding-block: 2vh;
+  padding-inline: 1rem;
+
+  border-radius: var(--modal-border-radius);
+  border: 1px solid rgba(72, 96, 133, 0.199);
+  border-block-end: none;
+
+  background-color: var(--backdrop-color);
+
+  box-shadow: 0px 0px 30px 6px var(--dark-shadow-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+
+.search-box {
   inline-size: 100%;
 
   border-radius: 1rem;
   padding: 0.3rem;
 
-  background: linear-gradient(173deg, var(--search-color) 0%, #14161a 100%);
-  box-shadow:
-    10px 10px 20px var(--searchWrapper-shadow-bottom-color),
-    -10px -10px 40px var(--searchWrapper-shadow-top-color);
+  background: linear-gradient(169deg, #202124, #14161a);
 
   color: var(--text-user-blur-color);
 
@@ -20,46 +38,82 @@
   }
 }
 
-.search-box {
-  block-size: var(--search-size);
+.input {
+  block-size: var(--input-size);
   border: 1px solid transparent;
   border-radius: 0.8rem 0 0 0.8rem;
 
-  background-color: var(--search-color);
-  box-shadow:
-    inset 5px 5px 10px var(--searchWrapper-shadow-top-color),
-    inset -5px -5px 10px var(--searchWrapper-shadow-bottom-color),
-    var(--light-out-position) rgb(var(--light-first-color), var(--light-opacity-off)),
-    var(--light-out-position) rgb(var(--light-second-color), var(--light-opacity-off));
+  background-color: var(--input-background-color);
+  box-shadow: var(--input-glow-internal-off), var(--input-volume), var(--input-glow-external-off);
 
   flex: 1 1 auto;
 
   padding-inline-start: 1rem;
   font-size: var(--text-size);
   caret-color: var(--filament-color);
-  color: inherit;
+  color: var(--text-user-blur-color);
 
   transition: all 0.3s ease-in-out;
 
   &::placeholder {
-    color: var(--text-placeholder-color);
+    color: #6d6d6d;
   }
 
   &:focus,
   &:hover {
     border-color: var(--filament-color);
-    box-shadow:
-      var(--light-inset-position) rgb(var(--light-second-color), var(--light-opacity-on)),
-      var(--light-inset-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-second-color), var(--light-opacity-on));
+    box-shadow: var(--input-glow-internal-on), var(--input-volume), var(--input-glow-external-on);
   }
+
   &:focus {
     outline: none;
     color: var(--text-user-focus-color);
   }
 }
-.search-box:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button {
+.wrapper:has(.dialog[open]) {
+  border: none;
+  border-block-end: 1px solid #46381d73;
+  background-color: var(--backdrop-color);
+
+  & > .search-box {
+    background: linear-gradient(169deg, var(--input-background-color), #161a1f);
+  }
+  & .input {
+    color: #614f2a;
+  }
+}
+
+.input:where(:-webkit-autofill, :autofill) {
+  -webkit-text-fill-color: var(--text-user-blur-color) !important;
+  border: 1px solid var(--input-background-color) !important;
+  box-shadow:
+    var(--input-glow-internal-off), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-off) !important;
+  -webkit-box-shadow:
+    var(--input-glow-internal-off), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-off) !important;
+
+  &:hover {
+    border-color: var(--filament-color) !important;
+    box-shadow:
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
+    -webkit-box-shadow:
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
+  }
+
+  &:focus,
+  &:focus:hover {
+    -webkit-text-fill-color: var(--text-user-focus-color) !important;
+    border-color: var(--filament-color) !important;
+    box-shadow:
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
+    -webkit-box-shadow:
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
+  }
+}
+.wrapper:has(.dialog[open]) .input:where(:-webkit-autofill, :autofill) {
+  -webkit-text-fill-color: #614f2a !important;
+}
+
+.input:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button {
   appearance: none;
   cursor: pointer;
 
@@ -68,17 +122,18 @@
   margin: 5px;
   border-inline-start: 2px solid grey;
 
-  background: url(../icons/icons8-cancel-off.svg) center no-repeat;
+  background: url(../assets/icon-cancel-off.svg) center no-repeat;
 }
-.search-box:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button:hover {
-  background: url(../icons/icons8-cancel-on.svg) center no-repeat;
+.input:enabled:read-write:where(:focus, :hover)::-webkit-search-cancel-button:hover {
+  background: url(../assets/icon-cancel-on.svg) center no-repeat;
 }
 
-.search-btn {
-  inline-size: var(--search-size);
-  block-size: var(--search-size);
+.btn {
+  inline-size: var(--input-size);
+  block-size: var(--input-size);
 
   background-color: transparent;
+  box-shadow: var(--input-glow-internal-off), var(--input-glow-external-off);
 
   border: 1px solid var(--filament-off-color);
   border-radius: 0 0.8rem 0.8rem 0;
@@ -89,11 +144,7 @@
     outline: none;
     cursor: pointer;
     border-color: var(--filament-color);
-    box-shadow:
-      var(--light-inset-position) rgb(var(--light-second-color), var(--light-opacity-on)),
-      var(--light-inset-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-second-color), var(--light-opacity-on));
+    box-shadow: var(--input-glow-internal-on), var(--input-glow-external-on);
   }
 
   &:hover {
@@ -105,8 +156,19 @@
   }
 }
 
-.provider-wrapper {
-  margin-block-start: 0.8rem;
-  margin-inline: auto;
-  inline-size: max-content;
+.dialog {
+  position: static;
+  border: 1px solid rgb(48, 48, 48);
+
+  padding: 4px;
+
+  box-shadow: 0px 0px 18px 1px var(--dark-shadow-color);
+
+  background-color: #202329;
+
+  &:focus-within,
+  &:hover {
+    border-color: var(--filament-color);
+    box-shadow: var(--other-element-glow);
+  }
 }

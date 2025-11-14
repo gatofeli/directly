@@ -1,34 +1,32 @@
-import { ConfigIcon } from "../utils/icons/ConfigIcon";
-import { HelpIcon } from "../utils/icons/HelpIcon";
-import styles from "./App.module.css";
-import { ExceptionSearcherProvider } from "./components/ExceptionSearcherProvider";
-import { Searcher } from "./components/Searcher";
-import { useListOfProviders } from "./hooks/useListOfProviders";
+import styles from "@searcher/App.module.css";
+import { EmptyProviderList } from "@searcher/components/EmptyProviderList";
+import { Loading } from "@searcher/components/Loading";
+import { Searcher } from "@searcher/components/Searcher";
+import { Footer } from "@searcher/components/Footer";
+import { useApp } from "@searcher/hooks/useApp";
+import { getClassNameModal } from "@searcher/logic/getClassNameModal";
+import { NAME } from "@utils/constants/default";
+import { CriticalError } from "@utils/lib/components/CriticalError";
 
 export function App() {
-  const { providerList, errorProviderList } = useListOfProviders();
+  const { dialogRef, status, providerList, STATUS_MODAL } = useApp()
 
-  return errorProviderList || providerList.length === 0 ? (
-    <ExceptionSearcherProvider>{errorProviderList}</ExceptionSearcherProvider>
-  ) : (
-    <div className={styles["backdrop"]}>
-      <main className={styles["main"]}>
-        <Searcher>{providerList}</Searcher>
-      </main>
+  const className = getClassNameModal(status)
 
-      <footer className={styles["footer"]}>
-        <a href="#" className={styles["footer-anchor"]} aria-label="Ayuda">
-          <HelpIcon />
-        </a>
+  return (
+    <dialog ref={dialogRef} className={`${styles[className]} ${styles['modal']}`} aria-label={`Extensión ${NAME}`}>
+      {status === STATUS_MODAL.LOADING && <Loading />}
+      {status === STATUS_MODAL.ERROR && <CriticalError />}
+      {status === STATUS_MODAL.EMPTY && <EmptyProviderList />}
+      {status === STATUS_MODAL.APP && (
+        <>
+          <main>
+            <Searcher>{providerList}</Searcher>
+          </main>
 
-        <a hidden
-          href="../../../../src/config/provider/configProvider.html"
-          className={styles["footer-anchor"]}
-          aria-label="Configuración"
-        >
-          <ConfigIcon />
-        </a>
-      </footer>
-    </div>
+          <Footer />
+        </>
+      )}
+    </dialog>
   );
 }

@@ -1,44 +1,62 @@
-.backdrop {
-  inline-size: 100vw;
-  block-size: 100vh;
+.modal:modal {
+  margin: auto;
 
-  background-color: var(--layout-tab-color);
+  border: none;
+  outline: none;
 
-  position: fixed;
-  inset: 0;
-  overflow: auto;
+  max-width: 100dvw;
+  max-height: 97dvh;
+
+  padding: 0;
+}
+.modal::backdrop {
+  background-color: var(--backdrop-color);
+  backdrop-filter: contrast(50%) blur(4px) brightness(40%) grayscale(85%);
+}
+
+.modal-info:modal {
+  padding-block: 3dvh;
+  padding-inline: 2dvw;
+
+  inline-size: max-content;
+
+  border: 2px solid var(--filament-color);
+  background-color: var(--modal-background-utils);
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+.modal-alert:modal {
+  padding-inline: 2dvw;
+  padding-block: 2dvh;
+
+  inline-size: max-content;
+
+  border: 2px solid grey;
+  background-color: var(--modal-background-utils);
+}
+
+.modal-load:modal {
+  padding-block: 2dvh;
+  padding-inline: 4dvw;
+
+  border: 2px solid rgb(56, 56, 56);
+  background-color: var(--modal-background-utils);
+}
+
+.modal-app:modal {
+  inline-size: 100%;
+  min-inline-size: 400px;
+
+  background-color: var(--modal-background-app);
+
+  border-radius: var(--modal-border-radius);
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 5rem;
-}
+  justify-content: space-between;
+  gap: 10dvh;
 
-.main {
-  inline-size: 90vw;
-
-  min-block-size: 358px;
-  min-inline-size: 345px;
-
-  padding-block-start: 3rem;
-}
-.footer {
-  display: flex;
-  gap: 2rem;
-}
-.footer-anchor {
-  inline-size: 35px;
-  block-size: 35px;
-
-  color: var(--text-user-blur-color);
-
-  &:hover,
-  &:focus {
-    color: var(--filament-color);
-    transform: scale(110%);
-  }
-  &:focus {
-    outline: 3px solid var(--filament-color);
-  }
+  overflow: auto;
+  scrollbar-color: #a89652 #2c2c2c;
 }

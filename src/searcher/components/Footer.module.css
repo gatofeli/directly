@@ -1,0 +1,35 @@
+.wrapper {
+  padding-inline: 2.5rem;
+  padding-block-end: 0.8rem;
+
+  background: transparent;
+
+  display: flex;
+  gap: 2rem;
+}
+.anchor {
+  box-sizing: content-box;
+  inline-size: 44px;
+  block-size: 44px;
+
+  padding: 10px;
+
+  border-radius: 44px;
+  border: 1px solid rgba(70, 65, 23, 0.712);
+
+  color: var(--text-user-blur-color);
+  background-color: #21252b;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    color: var(--filament-color);
+    border: 3px solid var(--filament-color);
+    box-shadow: var(--other-element-glow);
+  }
+
+  &:active {
+    color: black;
+    background-color: var(--filament-color);
+  }
+}

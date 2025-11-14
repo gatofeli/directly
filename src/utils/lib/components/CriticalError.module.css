@@ -1,17 +1,19 @@
 .wrapper {
   inline-size: 100%;
 
+  font-family: Arial, Helvetica, sans-serif;
+
   text-align: center;
-  color: #bdbdbdff;
+  color: rgb(189, 192, 170);
 }
 
 .image {
   inline-size: 250px;
-  margin-block-end: 1rem;
 }
 
 .message {
   font-size: 1.5rem;
+  line-height: 2rem;
 }
 .message-span {
   font-size: 2rem;

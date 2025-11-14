@@ -1,42 +1,40 @@
-import { SearchIcon } from "../../utils/icons/SearchIcon";
-import { useHandleForm } from "../hooks/useHandleForm";
-import { ProviderList } from "./ProviderList";
+import { useListVisibility } from "@searcher/hooks/useListVisibility";
+import { List } from "./List";
+import { SearchIcon } from "@utils/icons/SearchIcon";
 import styles from "./Searcher.module.css";
 
 export function Searcher({ children }) {
-  const { isHiddenProviders, hiddenProvidersList, setCtrlSubmit, handleSubmit } = useHandleForm();
+  const { showList, closeList, list, dialogNavRef } = useListVisibility(children);
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const userQuery = new FormData(event.target).get("query")
+    showList(userQuery)
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className={styles["search-wrapper"]} aria-expanded={!isHiddenProviders} aria-controls="providerWrapper">
+    <search className={styles["wrapper"]}>
+      <form onSubmit={handleSubmit} className={styles["search-box"]}>
         <input
           type="search"
           name="query"
-          className={styles["search-box"]}
-          aria-label="Consulta"
+          className={styles["input"]}
           placeholder="[ENTER] / 'Galletas en el microondas'"
+          aria-label="Buscar"
+          autoComplete="on"
+          maxLength={500}
+          onFocus={closeList}
           autoFocus
-          maxLength="500"
-          onFocus={hiddenProvidersList}
         />
-        <button
-          type="submit"
-          onFocus={hiddenProvidersList}
-          className={styles["search-btn"]}
-          aria-label="Siguiente paso"
-        >
+
+        <button type="submit" className={styles["btn"]} onFocus={closeList} aria-label="Mostrar lista de resultados">
           <SearchIcon />
         </button>
-      </div>
+      </form >
 
-      <nav
-        id="providerWrapper"
-        className={styles["provider-wrapper"]}
-        hidden={isHiddenProviders}
-        aria-hidden={isHiddenProviders}
-      >
-        <ProviderList setCtrlSubmit={setCtrlSubmit}>{children}</ProviderList>
-      </nav>
-    </form>
+      <dialog ref={dialogNavRef} closedby="none" className={styles["dialog"]} aria-label="Resultados de búsqueda">
+        {list.length > 0 && <List>{list}</List>}
+      </dialog>
+    </search>
   );
 }

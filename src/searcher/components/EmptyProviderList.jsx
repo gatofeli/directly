@@ -2,14 +2,15 @@ import styles from "./EmptyProviderList.module.css";
 
 export function EmptyProviderList() {
   return (
-    <div className={styles["wrapper"]}>
-      <p className={styles["symbol"]} aria-hidden>
+    <>
+      <p className={styles["symbol"]} aria-hidden="true">
         ^◔ᴥ◔^
       </p>
       <h1 className={styles["title"]}>Parece que tu lista de webs favoritas está vacía...</h1>
 
       <div>
         <p className={styles["text"]}>Todo tiene solución:</p>
+
         <ul className={`${styles["text"]} ${styles["list"]}`}>
           <li>
             Activa algunas de las webs predefinidas que te proponemos{" "}
@@ -19,14 +20,15 @@ export function EmptyProviderList() {
           </li>
 
           <li>
-            <p><span style={{ fontWeight: "bold", color: "#685b2ecc" }}>{"(Provisional) "}</span> Añade la web que prefieras, modificando la URL de una web activada.</p>
-            <p>Si modificaste una web predefinida podrás volvera a activarla.</p>
+            <p>
+              <span className={styles["temporary"]}>{"( Provisional )  "}</span>
+              Añade la web que prefieras, y luego modifica su URL. <br />
+              Si modificaste una web predefinida podrás volvera a activarla.
+            </p>
           </li>
 
-          <br />
-
           <li>
-            <span style={{ fontWeight: "bold", color: "#ad9332ff" }}>{"(Próximamente) "}</span> Añadir la web que prefieras directamente, sin entrar en la configuración.
+            <span className={styles["coming"]}>{"( Próximamente )  "}</span> Añadir la web que prefieras directamente, sin entrar en la configuración.
           </li>
 
           <li hidden>
@@ -37,6 +39,6 @@ export function EmptyProviderList() {
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 }
