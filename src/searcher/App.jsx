@@ -14,7 +14,7 @@ export function App() {
   const className = getClassNameModal(status)
 
   return (
-    <dialog ref={dialogRef} className={`${styles[className]} ${styles['dialog']}`} aria-label={`Extensión ${NAME}`}>
+    <dialog ref={dialogRef} className={`${styles[className]} ${styles['modal']}`} aria-label={`Extensión ${NAME}`}>
       {status === STATUS_MODAL.LOADING && <Loading />}
       {status === STATUS_MODAL.ERROR && <CriticalError />}
       {status === STATUS_MODAL.EMPTY && <EmptyProviderList />}

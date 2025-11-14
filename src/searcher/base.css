@@ -1,33 +1,34 @@
 :root {
-  --autofill-cover: 0 0 0px 1000px #23272f inset;
-  --input-volume: 5px 5px 10px #383e4b inset, -5px -5px 10px #0e1013 inset;
-  --input-glow-external-off: 0 0 20px #ffd53b00, 0 0 20px #ff660000;
-  --input-glow-internal-off: 0 0 10px #ffd53b00 inset, 0 0 10px #ff660000 inset;
-  --input-glow-external-on: 0 0 20px #ffd53b, 0 0 20px #ff6600;
-  --input-glow-internal-on: 0 0 10px #ffd53b inset, 0 0 10px #ff6600 inset;
-
-  /* --------------------------------------- */
-
-  --layout-tab-color: #101215;
-  --search-color: #23272f;
-  --searchWrapper-shadow-top-color: #383e4b;
-  --searchWrapper-shadow-bottom-color: #0e1013;
-  --search-size: 3.6rem;
-  --light-out-position: 0px 0px 20px;
-  --light-inset-position: inset 0px 0px 10px;
-  --light-first-color: 255, 213, 59;
-  --light-second-color: 255, 102, 0;
-  --light-opacity-off: 0%;
-  --light-opacity-on: 50%;
-  --text-size: 1.1rem;
+  --filament-off-color: #685b2ecc;
   --filament-color: #ffd43b;
+  --filament-support-color: #ff6600;
+  --dark-shadow-color: #0e1013;
+  --input-background-color: #23272f;
+  --backdrop-color: #23272f70;
+
+  --modal-background-utils: #202124;
+  --modal-background-app: #20212457;
+
   --text-user-focus-color: #ffffff;
   --text-user-blur-color: #7c827f;
-  --text-placeholder-color: #6d6d6d;
+  --input-size: 3.6rem;
+  --modal-border-radius: 1.6rem;
+  --text-size: 1.1rem;
   --provider-width: 170px;
   --provider-height: 2.6rem;
 
-  --filament-off-color: #685b2ecc;
+  --input-autofill-cover: 0 0 0px 1000px var(--input-background-color) inset;
+  --input-volume: 5px 5px 10px #383e4b inset, -5px -5px 10px var(--dark-shadow-color) inset;
+  --input-glow-external-off: 0 0 20px #ffd43b00, 0 0 20px #ff660000;
+  --input-glow-internal-off: 0 0 10px #ffd43b00 inset, 0 0 10px #ff660000 inset;
+  --input-glow-external-on: 0 0 20px var(--filament-color), 0 0 20px var(--filament-support-color);
+  --input-glow-internal-on: 0 0 10px var(--filament-color) inset, 0 0 10px var(--filament-support-color) inset;
+
+  --other-element-glow:
+    0px 0px 15px var(--filament-color) inset,
+    0px 0px 5px var(--filament-support-color) inset,
+    0px 0px 15px var(--filament-support-color),
+    0px 0px 5px var(--filament-color);
 }
 * {
   box-sizing: border-box;

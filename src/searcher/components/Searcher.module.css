@@ -1,15 +1,17 @@
 .wrapper {
-  inline-size: 97dvw;
+  inline-size: 100dvw;
   margin-inline: auto;
 
   padding-block: 2vh;
   padding-inline: 1rem;
 
-  border-radius: 1.6rem;
+  border-radius: var(--modal-border-radius);
   border: 1px solid rgba(72, 96, 133, 0.199);
   border-block-end: none;
 
-  background-color: #23272f7e;
+  background-color: var(--backdrop-color);
+
+  box-shadow: 0px 0px 30px 6px var(--dark-shadow-color);
 
   display: flex;
   flex-direction: column;
@@ -37,16 +39,12 @@
 }
 
 .input {
-  block-size: var(--search-size);
+  block-size: var(--input-size);
   border: 1px solid transparent;
   border-radius: 0.8rem 0 0 0.8rem;
 
-  background-color: var(--search-color);
-  box-shadow:
-    inset 5px 5px 10px var(--searchWrapper-shadow-top-color),
-    inset -5px -5px 10px var(--searchWrapper-shadow-bottom-color),
-    var(--light-out-position) rgb(var(--light-first-color), var(--light-opacity-off)),
-    var(--light-out-position) rgb(var(--light-second-color), var(--light-opacity-off));
+  background-color: var(--input-background-color);
+  box-shadow: var(--input-glow-internal-off), var(--input-volume), var(--input-glow-external-off);
 
   flex: 1 1 auto;
 
@@ -58,17 +56,13 @@
   transition: all 0.3s ease-in-out;
 
   &::placeholder {
-    color: var(--text-placeholder-color);
+    color: #6d6d6d;
   }
 
   &:focus,
   &:hover {
     border-color: var(--filament-color);
-    box-shadow:
-      var(--light-inset-position) rgb(var(--light-second-color), var(--light-opacity-on)),
-      var(--light-inset-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-second-color), var(--light-opacity-on));
+    box-shadow: var(--input-glow-internal-on), var(--input-volume), var(--input-glow-external-on);
   }
 
   &:focus {
@@ -79,10 +73,10 @@
 .wrapper:has(.dialog[open]) {
   border: none;
   border-block-end: 1px solid #46381d73;
-  background-color: #23272f7e;
+  background-color: var(--backdrop-color);
 
   & > .search-box {
-    background: linear-gradient(169deg, #23272f, #161a1f);
+    background: linear-gradient(169deg, var(--input-background-color), #161a1f);
   }
   & .input {
     color: #614f2a;
@@ -91,32 +85,28 @@
 
 .input:where(:-webkit-autofill, :autofill) {
   -webkit-text-fill-color: var(--text-user-blur-color) !important;
-  border: 1px solid var(--search-color) !important;
-
+  border: 1px solid var(--input-background-color) !important;
   box-shadow:
-    var(--input-glow-internal-off), var(--input-volume), var(--autofill-cover), var(--input-glow-external-off) !important;
+    var(--input-glow-internal-off), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-off) !important;
   -webkit-box-shadow:
-    var(--input-glow-internal-off), var(--input-volume), var(--autofill-cover), var(--input-glow-external-off) !important;
+    var(--input-glow-internal-off), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-off) !important;
 
   &:hover {
     border-color: var(--filament-color) !important;
-
     box-shadow:
-      var(--input-glow-internal-on), var(--input-volume), var(--autofill-cover), var(--input-glow-external-on) !important;
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
     -webkit-box-shadow:
-      var(--input-glow-internal-on), var(--input-volume), var(--autofill-cover), var(--input-glow-external-on) !important;
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
   }
 
   &:focus,
   &:focus:hover {
     -webkit-text-fill-color: var(--text-user-focus-color) !important;
-
     border-color: var(--filament-color) !important;
-
     box-shadow:
-      var(--input-glow-internal-on), var(--input-volume), var(--autofill-cover), var(--input-glow-external-on) !important;
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
     -webkit-box-shadow:
-      var(--input-glow-internal-on), var(--input-volume), var(--autofill-cover), var(--input-glow-external-on) !important;
+      var(--input-glow-internal-on), var(--input-volume), var(--input-autofill-cover), var(--input-glow-external-on) !important;
   }
 }
 .wrapper:has(.dialog[open]) .input:where(:-webkit-autofill, :autofill) {
@@ -139,10 +129,11 @@
 }
 
 .btn {
-  inline-size: var(--search-size);
-  block-size: var(--search-size);
+  inline-size: var(--input-size);
+  block-size: var(--input-size);
 
   background-color: transparent;
+  box-shadow: var(--input-glow-internal-off), var(--input-glow-external-off);
 
   border: 1px solid var(--filament-off-color);
   border-radius: 0 0.8rem 0.8rem 0;
@@ -153,11 +144,7 @@
     outline: none;
     cursor: pointer;
     border-color: var(--filament-color);
-    box-shadow:
-      var(--light-inset-position) rgb(var(--light-second-color), var(--light-opacity-on)),
-      var(--light-inset-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-first-color), var(--light-opacity-on)),
-      var(--light-out-position) rgb(var(--light-second-color), var(--light-opacity-on));
+    box-shadow: var(--input-glow-internal-on), var(--input-glow-external-on);
   }
 
   &:hover {
@@ -175,18 +162,13 @@
 
   padding: 4px;
 
-  box-shadow: 0px 0px 18px 1px var(--searchWrapper-shadow-bottom-color);
+  box-shadow: 0px 0px 18px 1px var(--dark-shadow-color);
 
   background-color: #202329;
 
   &:focus-within,
   &:hover {
     border-color: var(--filament-color);
-
-    box-shadow:
-      inset 0px 0px 15px rgb(var(--light-second-color), var(--light-opacity-on)),
-      inset 0px 0px 5px rgb(var(--light-first-color), var(--light-opacity-on)),
-      0 0 5px rgb(var(--light-first-color), var(--light-opacity-on)),
-      0 0 5px rgb(var(--light-second-color), var(--light-opacity-on));
+    box-shadow: var(--other-element-glow);
   }
 }

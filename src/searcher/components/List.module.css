@@ -1,9 +1,7 @@
 .nav {
   padding: 30px;
 
-  box-shadow:
-    inset 2px 2px 8px var(--searchWrapper-shadow-bottom-color),
-    inset -5px -5px 4px #191c22;
+  box-shadow: 2px 2px 8px var(--dark-shadow-color) inset;
 
   background-color: #1a1d22;
   border: 1px solid #2b230d;

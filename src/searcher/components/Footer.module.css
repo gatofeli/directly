@@ -1,8 +1,11 @@
 .wrapper {
-  display: flex;
-  gap: 2rem;
+  padding-inline: 2.5rem;
+  padding-block-end: 0.8rem;
 
   background: transparent;
+
+  display: flex;
+  gap: 2rem;
 }
 .anchor {
   box-sizing: content-box;
@@ -20,14 +23,9 @@
 
   &:hover,
   &:focus {
-    transform: scale(105%);
     color: var(--filament-color);
     border: 3px solid var(--filament-color);
-    box-shadow:
-      inset 0px 0px 15px rgb(var(--light-second-color), var(--light-opacity-on)),
-      inset 0px 0px 5px rgb(var(--light-first-color), var(--light-opacity-on)),
-      0 0 15px rgb(var(--light-first-color), var(--light-opacity-on)),
-      0 0 5px rgb(var(--light-second-color), var(--light-opacity-on));
+    box-shadow: var(--other-element-glow);
   }
 
   &:active {

@@ -1,4 +1,4 @@
-.dialog:modal {
+.modal:modal {
   margin: auto;
 
   border: none;
@@ -9,50 +9,47 @@
 
   padding: 0;
 }
-.dialog::backdrop {
-  background-color: #23272f70;
+.modal::backdrop {
+  background-color: var(--backdrop-color);
   backdrop-filter: contrast(50%) blur(4px) brightness(40%) grayscale(85%);
 }
 
-.dialog-info:modal {
+.modal-info:modal {
   padding-block: 3dvh;
   padding-inline: 2dvw;
 
   inline-size: max-content;
 
   border: 2px solid var(--filament-color);
-  background-color: #202124;
+  background-color: var(--modal-background-utils);
 
   font-family: Arial, Helvetica, sans-serif;
 }
-.dialog-alert:modal {
+.modal-alert:modal {
   padding-inline: 2dvw;
   padding-block: 2dvh;
 
   inline-size: max-content;
 
   border: 2px solid grey;
-  background-color: #202124;
+  background-color: var(--modal-background-utils);
 }
 
-.dialog-load:modal {
+.modal-load:modal {
   padding-block: 2dvh;
   padding-inline: 4dvw;
 
   border: 2px solid rgb(56, 56, 56);
-  background-color: #202124;
+  background-color: var(--modal-background-utils);
 }
 
-.dialog-app:modal {
+.modal-app:modal {
   inline-size: 100%;
   min-inline-size: 400px;
 
-  padding-block: 10px;
+  background-color: var(--modal-background-app);
 
-  background-color: #181b20c2;
-  box-shadow: 0px 0px 40px 6px var(--searchWrapper-shadow-bottom-color);
-
-  border-radius: 1.7rem;
+  border-radius: var(--modal-border-radius);
 
   display: flex;
   flex-direction: column;

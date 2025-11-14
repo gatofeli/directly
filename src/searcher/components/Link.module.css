@@ -17,21 +17,16 @@
     outline: none;
     border: 1px solid var(--filament-color);
     box-shadow:
-      inset 2px 0px 5px 0px rgb(var(--light-first-color), var(--light-opacity-on)),
-      0px 0px 10px 1px rgb(var(--light-first-color), var(--light-opacity-on)),
-      0px 0px 10px 1px rgb(var(--light-second-color), var(--light-opacity-on));
+      2px 0px 5px 0px var(--filament-color) inset,
+      0px 0px 10px 1px var(--filament-color),
+      0px 0px 10px 1px var(--filament-support-color);
   }
 }
 
-/* Selectores y propiedades colocadas estrategicamente por especificidad, cascada y sobrescritura de propiedades */
 .anchor {
   color: #927f54;
   background: #22252b;
   border-inline-start: 5px solid var(--filament-off-color);
-
-  &.visited {
-    color: #84692e;
-  }
 
   &:focus {
     color: var(--filament-color);
@@ -45,11 +40,17 @@
 
   &:is(:focus:hover) {
     border-inline-start-color: var(--filament-color);
+    border-inline-start: 12px solid var(--filament-color);
+  }
+
+  &.visited {
+    color: #84692e;
   }
 
   &:active,
   &.active-key {
     color: #22252b;
     background: var(--filament-color);
+    border-inline-start-color: var(--filament-color);
   }
 }
