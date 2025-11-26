@@ -8,7 +8,13 @@ import { getClassNameModal } from "@searcher/logic/getClassNameModal";
 import { NAME } from "@utils/constants/default";
 import { CriticalError } from "@utils/lib/components/CriticalError";
 
-export function App() {
+
+
+//TODO: APLICAR exit al cerrar el dialog
+
+
+
+export function App(exit) {
   const { dialogRef, status, providerList, STATUS_MODAL } = useApp()
 
   const className = getClassNameModal(status)

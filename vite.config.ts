@@ -12,6 +12,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         background: resolve(__dirname, "src/background/background.ts"),
+        script: resolve(__dirname, "src/background/script/script.ts"),
         searcher: resolve(__dirname, "src/searcher/searcher.html"),
         config_provider: resolve(__dirname, "src/config/provider/configProvider.html"),
         config_theme: resolve(__dirname, "src/config/theme/configTheme.html"),
@@ -22,6 +23,9 @@ export default defineConfig({
         entryFileNames: (chunkInfo) => {
           if (chunkInfo.name === "background") {
             return "background.js";
+          }
+          if (chunkInfo.name === "script") {
+            return "script.js";
           }
           return "assets/[name]-[hash].js";
         },

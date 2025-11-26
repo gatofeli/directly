@@ -26,15 +26,20 @@
     "type": "module"
   },
   "commands": {
+    "openInCurrentTab": {
+      "suggested_key": { "default": "Ctrl+Space" , "mac": "Command+Shift+C" },
+      "description": "Abrir extensión en misma pestaña"
+    },
     "openInNewTab": {
-      "suggested_key": {
-        "default": "Ctrl+Space",
-        "windows": "Ctrl+Space",
-        "linux": "Ctrl+Space",
-        "chromeos": "Ctrl+Space",
-        "mac": "Shift+Alt+Space"
-      },
-      "description": "Abrir extensión"
+      "suggested_key": { "default": "Ctrl+Shift+Space" ,  "mac": "Command+Shift+Space" },
+      "description": "Abrir extensión en nueva pestaña"
     }
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["script.js"],
+      "run_at": "document_idle"
+    }
+  ]
 }

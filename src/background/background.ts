@@ -1,11 +1,13 @@
 import { openInNewTab } from "./events/openInNewTab";
+import {openInCurrentTab} from "./events/openInCurrentTab"
 
 chrome.commands.onCommand.addListener((command, tab) => {
-  if (command === "openInSameTab" && tab?.id == undefined) {
-    //todo: openInSameTab(tab.id....)
-  } else {
-    openInNewTab();
-  }
+  if (command === "openInCurrentTab" && tab?.id != undefined) {
+    openInCurrentTab(tab.id);
+    return;
+  } 
+  
+  openInNewTab();
 });
 
 //! Provisional
