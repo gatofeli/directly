@@ -20,7 +20,7 @@
     },
     "default_title": "Directly"
   },
-  "permissions": ["storage"],
+  "permissions": ["storage","activeTab","scripting"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
@@ -34,12 +34,6 @@
       "suggested_key": { "default": "Ctrl+Shift+Space" ,  "mac": "Command+Shift+Space" },
       "description": "Abrir extensión en nueva pestaña"
     }
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["script.js"],
-      "run_at": "document_idle"
-    }
-  ]
+  }
+
 }

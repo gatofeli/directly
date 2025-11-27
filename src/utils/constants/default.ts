@@ -5,3 +5,5 @@ export const MAX_LENGTH_QUERY = 500;
 
 export const NAME_EXTENSION = `${NAME}Extension`;
 export const KEYWORD = `--${NAME_EXTENSION}--`;
+
+export const hostId = "__[^-^]-directly-web-extension__"

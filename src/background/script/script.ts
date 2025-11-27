@@ -1,42 +1,28 @@
+import { hostId } from "@utils/constants/default";
 import { mountReact } from "./script-react";
+import { isExtensionOpen } from "./isExtensionOpen";
 
-chrome.runtime.onMessage.addListener(() => {
-   const body = document.querySelector("body")
+(()=>{
+const body = document.querySelector("body")
    if (body == undefined){
       // Mensaje al serviceWorker --> openInNewTab
       return;
    }
-   if (existExtensionShadow()){
+   if (isExtensionOpen()){
       // Mensaje al serviceWorker --> openInNewTab
       return;
    }
    
-   const shadowHost = generateHost(body)
-   const shadowRoot = generateRoot(shadowHost)
-   const restore = () => { shadowHost.remove() }
-   mountReact(shadowRoot,restore)
-})
+   const host = document.createElement("div")
+   host.setAttribute("id", hostId)
 
-export const hostId = "__[^-^]-directly-web-extension__"
-
-export function existExtensionShadow(){
-   return !!document.getElementById(hostId)
-}
-export function generateHost(body: HTMLBodyElement){
-   const shadowHost = document.createElement("div")
-
-   shadowHost.setAttribute("id", hostId)
-   shadowHost.attachShadow({mode:"open"})
-
+   const shadowHost = host.attachShadow({mode:"open"})   
+   body.appendChild(host)
    
-   body.appendChild(shadowHost)
+   const root = document.createElement("div")
+   shadowHost.appendChild(root)
+   
+   const restore = () => { host.remove() }
 
-   return shadowHost;
-}
-export function generateRoot(host: HTMLDivElement){
-   const shadowRoot = document.createElement("div")
-   host.appendChild(shadowRoot)
-
-   return shadowRoot;
-}
-
+   mountReact(root,restore)
+})()
