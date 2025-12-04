@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Directly - Ayuda</title>
+</head>
+
+<body>
+  <header>
+    <h1>Ayuda de Directly</h1>
+    <p><strong>La forma más rápida de llegar a donde ya sabes que quieres ir.</strong></p>
+  </header>
+
+  <main>
+    <section aria-labelledby="section-1">
+      <details open>
+        <summary>
+          <h2 id="section-1">Atajos de teclado</h2>
+        </summary>
+        <p class="up comment">Nos referiremos a ellos apartir de ahora como "<strong>comandos</strong>".</p>
+        <p>
+          Los comandos sirven para activar la extensión.
+          Existen 2 formas de activación: <span class="comment">( es decir 2 atajos de teclado / comandos )</span>
+        </p>
+
+        <ul>
+          <li>
+            <p>"<strong>Activar la extensión</strong>": Abre la extensión en una nueva pestaña.</p>
+            <p class="comment up">
+              Es la misma acción que haría cuando clicamos en el icono de la extensión (barra de extensiones).
+            </p>
+          </li>
+
+          <li>
+            <p>
+              "<strong>Activar la extensión en la misma pestaña</strong>": Abre la extensión
+              <a class="normal-text-ref" href="#note-commands-1">en la pestaña actual<sup
+                  id="ref-commands-1">1</sup></a>,
+              ocultando temporalmente el contenido anterior a la extensión.
+            </p>
+          </li>
+        </ul>
+
+        <article>
+          <h3>¿Puedo modificarlos?</h3>
+          <p>
+            Sí, son totalmente personalizables, bajo las
+            <a class="normal-text-ref" href="#note-commands-2">condiciones del navegador<sup
+                id="ref-commands-2">2</sup></a>.
+          </p>
+
+          <ol>
+            <li>Acceder a "extensiones" <span class="comment">(desde el icono de extensiones o también Menú >
+                "Extensiones")</span>.</li>
+            <li>"Gestionar Extensiones".</li>
+            <li>"Accesos directos" <span class="comment">(parte izquierda de la pantalla)</span>.</li>
+            <li>
+              Busca la extensión de <strong>Directly</strong> y dentro de ella pulsa "editar" <span
+                class="comment">(icono de lápiz)</span>.
+            </li>
+            <li>Teclea tu nuevo atajo de teclado.</li>
+          </ol>
+
+          <img class="image" loading="lazy" src="/assets/help-commands-dark-1.webp"
+            alt="Muestra los pasos a seguir para configurar un atajo de teclado, descrito anteriormente">
+        </article>
+
+        <footer class="notes" aria-label="Notas a pie de página">
+          <ul>
+            <li>
+              <p>
+                <a class="note" id="note-commands-1" href="#ref-commands-1">
+                  1. Excepciones de "Activar la extensión en la misma pestaña":
+                </a>
+                Hay ciertas pestañas <span class="comment">(URLs)</span> que están restringidas a las extensiones por
+                motivos de seguridad (configuracion del navegador, nueva pestaña, ...),
+                en estos casos la extensión siempre se abriría en una nueva pestaña.
+              </p>
+              <p>
+                En el caso concreto de hacerlo desde la pagina principal de una nueva pestaña (chrome://newtab),
+                siempre se abrirá la extensión en una nueva pestaña y luego se borraría la pestaña desde la que se
+                llamó, simulando que se ha abierto en esa misma pestaña nueva.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <a class="note" id="note-commands-2" href="#ref-commands-2">
+                  2. Condiciones del navegador:
+                </a>
+                Para agregar un comando, en cualquier extensión, es obligatorio respetar las normas del navegador,
+                resumidamente:
+              </p>
+              <ul class="up">
+                <li>
+                  Debe tener la siguiente estructura:
+                  <strong>Primaria</strong> + <strong>"Shift"</strong><span>(opcional)</span> +
+                  <strong>Secundaria</strong>.
+                </li>
+
+                <li><strong>Teclas Primarias:</strong>
+                  <ul class="up">
+                    <li>"Alt"</li>
+                    <li>"Ctrl" <span class="comment">(Windows y Linux)</span></li>
+                    <li>"Command" <span class="comment">(macOs)</span></li>
+                  </ul>
+                </li>
+
+                <li><strong>Primarias nunca pueden ir juntas:</strong>
+                  <ul class="up">
+                    <li>NO "Ctrl" + "Alt"</li>
+                    <li>NO "Command" + "Alt"</li>
+                  </ul>
+                </li>
+
+                <li>Se puede añadir como tecla extra: "Shift".</li>
+
+                <li>
+                  <strong>Teclas secundarias:</strong> Letras, números, barra espaciadora, flechas, teclas multimedia...
+                </li>
+
+                <li><strong>No se pueden usar las teclas:</strong> "Tab" ni "AltGr".</li>
+                <li><strong>Los atajos de teclado son únicos</strong>, no se puede añadir el mismo comando 2 veces,
+                  aunque sea de otra extensión.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </footer>
+      </details>
+    </section>
+
+    <section aria-labelledby="section-2">
+      <details open>
+        <summary>
+          <h2 id="section-2">¿?</h2>
+        </summary>
+
+        <article>
+          <h3>¿?</h3>
+        </article>
+      </details>
+    </section>
+
+  </main>
+</body>
+
+</html>

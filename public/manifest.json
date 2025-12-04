@@ -34,7 +34,7 @@
         "chromeos": "Ctrl+Space",
         "mac": "Shift+Alt+Space"
       },
-      "description": "Abrir extensión"
+      "description": "Activar la extensión en la misma pestaña"
     }
   }
 }

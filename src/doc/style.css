@@ -216,3 +216,15 @@ article {
     margin-inline-start: 2rem;
   }
 }
+
+.image {
+  display: block;
+  block-size: 260px;
+  inline-size: 700px;
+
+  padding: 10px;
+  background-color: var(--config-color-text_1);
+  border-radius: 8px;
+
+  margin-inline: auto;
+}
