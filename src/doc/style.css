@@ -222,9 +222,10 @@ article {
   block-size: 260px;
   inline-size: 700px;
 
-  padding: 10px;
-  background-color: var(--config-color-text_1);
-  border-radius: 8px;
-
+  border-radius: 4px;
+  border: 2px solid var(--config-color-text_1);
+  margin-block: 0.8rem 1.2rem;
   margin-inline: auto;
+
+  box-shadow: 0 0 8px 1px var(--config-color-text_2);
 }
