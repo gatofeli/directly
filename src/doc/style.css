@@ -53,6 +53,10 @@ body {
   line-height: 1.6;
 
   color: var(--config-color-text_2);
+
+  & > footer {
+    min-block-size: 6rem;
+  }
 }
 
 header {
@@ -133,7 +137,9 @@ article {
 .up {
   margin-block-start: -0.2rem;
 }
-
+.down {
+  margin-block-start: 1rem;
+}
 .comment {
   font-size: 1rem;
   color: var(--config-color-text_1);
@@ -217,7 +223,7 @@ article {
   }
 }
 
-.image {
+.image-center {
   display: block;
   block-size: 260px;
   inline-size: 700px;
@@ -228,4 +234,20 @@ article {
   margin-inline: auto;
 
   box-shadow: 0 0 8px 1px var(--config-color-text_2);
+}
+.image-lateral {
+  display: block;
+  block-size: 191px;
+  inline-size: 464px;
+
+  border-radius: 4px;
+  border: 2px solid var(--config-color-text_1);
+
+  margin-block: 0.8rem 1.2rem;
+
+  box-shadow: 0 0 8px 1px var(--config-color-text_2);
+}
+
+.bold {
+  font-weight: bold;
 }
