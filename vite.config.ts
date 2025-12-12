@@ -16,7 +16,8 @@ export default defineConfig({
         config_provider: resolve(__dirname, "src/config/provider/configProvider.html"),
         config_theme: resolve(__dirname, "src/config/theme/configTheme.html"),
         config_bug: resolve(__dirname, "src/config/reportBug/configBug.html"),
-        config_info: resolve(__dirname, "src/config/info/configInfo.html"),
+        doc_info: resolve(__dirname, "src/doc/info.html"),
+        doc_help: resolve(__dirname, "src/doc/help.html"),
       },
       output: {
         entryFileNames: (chunkInfo) => {
