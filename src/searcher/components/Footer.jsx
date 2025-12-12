@@ -1,17 +1,19 @@
-import { ConfigIcon } from '@utils/icons/ConfigIcon'
-import { HelpIcon } from '@utils/icons/HelpIcon'
-import styles from './Footer.module.css'
+import { ConfigIcon } from "@utils/icons/ConfigIcon";
+import { HelpIcon } from "@utils/icons/HelpIcon";
+import styles from "./Footer.module.css";
 
 export function Footer() {
-
   return (
     <footer className={styles["wrapper"]}>
-      {/* <a hidden
-        href="#"
+      <a
+        href="../../../../../src/doc/help.html"
+        target="_blank"
+        rel="noopener"
         className={styles["anchor"]}
-        aria-label="Ayuda">
+        aria-label="Ayuda"
+      >
         <HelpIcon />
-      </a> */}
+      </a>
 
       <a
         href="../../../../../src/config/provider/configProvider.html"
@@ -21,5 +23,5 @@ export function Footer() {
         <ConfigIcon />
       </a>
     </footer>
-  )
+  );
 }

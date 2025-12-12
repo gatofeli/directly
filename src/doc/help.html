@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Directly - Ayuda</title>
+</head>
+
+<body>
+  <header>
+    <h1>Ayuda de Directly</h1>
+    <p class="bold">La forma más rápida de llegar a donde ya sabes que quieres ir.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="section-1">
+      <details>
+        <summary>
+          <h2 id="section-1">Atajos de teclado</h2>
+        </summary>
+
+        <p id="open-section-1" class="up comment">
+          Nos referiremos a ellos a partir de ahora como "<strong>comandos</strong>".
+        </p>
+        <p>
+          Los comandos sirven para activar la extensión.
+        </p>
+        <p class="down">
+          <span class="bold">Existen 2 formas de activación:</span>
+          <span class="comment">(es decir, 2 atajos de teclado/comandos)</span>
+        </p>
+
+        <ul>
+          <li>
+            <p>"<strong>Activar la extensión</strong>": Abre la extensión en una nueva pestaña.</p>
+            <p class="comment up">
+              Es la misma acción que haría cuando clicamos en el icono de la extensión (barra de extensiones).
+            </p>
+          </li>
+
+          <li>
+            <p>
+              "<strong>Activar la extensión en la misma pestaña</strong>": Abre la extensión
+              <a href="#note-commands-1">en la pestaña actual<sup id="ref-commands-1"> 1
+                </sup></a>,
+              ocultando temporalmente el contenido anterior a la extensión.
+            </p>
+          </li>
+        </ul>
+
+        <article>
+          <h3>Atajos de teclado por defecto</h3>
+          <p>Por defecto y siempre que ese comando no esté ocupado <span class="comment">(por otra o la misma
+              extensión)</span> serán:</p>
+          <ul>
+            <li>
+              <p>"<strong>Activar la extensión</strong>":</p>
+              <ul>
+                <li>"<strong>Ctrl + Space</strong>": <span class="comment">Windows y Linux</span></li>
+                <li>"<strong>Command + Space</strong>": <span class="comment">macOS</span></li>
+              </ul>
+            </li>
+
+            <li>
+              <p>"<strong>Activar la extensión en la misma pestaña</strong>":</p>
+              <ul>
+                <li>"<strong>Ctrl + Shift + Space</strong>": <span class="comment">Windows y Linux</span>
+                </li>
+                <li>"<strong>Cmd + Shift + Space</strong>": <span class="comment">macOS</span></li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>¿Puedo modificarlos?</h3>
+          <p>
+            Sí, son totalmente personalizables, bajo las
+            <a href="#note-commands-2">condiciones del navegador<sup id="ref-commands-2"> 2
+              </sup></a>.
+          </p>
+
+          <p class="bold down">Para modificar un comando:</p>
+          <ol>
+            <li>Accede a las <strong>extensiones de tu navegador</strong>
+              <span class="comment">(desde el icono de extensiones o también Menú > "Extensiones")</span>.
+            </li>
+            <li>"Gestionar Extensiones".</li>
+            <li>"Accesos directos" <span class="comment">(parte izquierda de la pantalla)</span>.</li>
+            <li>
+              Busca <span class="bold">la extensión de Directly</span> y dentro de ella pulsa "editar" <span
+                class="comment">(icono de lápiz)</span>.
+            </li>
+            <li>Teclea tu nuevo atajo de teclado.</li>
+          </ol>
+
+          <img class="image-center" loading="lazy" src="/assets/help-commands-dark-1.webp"
+            alt="Muestra los pasos a seguir para configurar un atajo de teclado, descrito anteriormente">
+        </article>
+
+        <footer class="notes">
+          <h3>Aclaración de conceptos:</h3>
+          <ol>
+            <li class="note">
+              <a id="note-commands-1" href="#ref-commands-1">
+                Excepciones de "Activar la extensión en la misma pestaña":
+              </a>
+              <p>
+                Hay ciertas pestañas <span class="comment">(URLs)</span> que están restringidas a las extensiones por
+                motivos de seguridad (configuracion del navegador, nueva pestaña, ...),
+                en estos casos la extensión siempre se abriría en una nueva pestaña.
+              </p>
+              <p>
+                En el caso concreto de hacerlo desde la página principal de una nueva pestaña (chrome://newtab),
+                siempre se abrirá la extensión en una nueva pestaña y luego se borraría la pestaña desde la que se
+                llamó, simulando que se ha abierto en esa misma pestaña nueva.
+              </p>
+            </li>
+
+            <li class="note">
+              <a id="note-commands-2" href="#ref-commands-2">
+                Condiciones del navegador:
+              </a>
+              <p>
+                Para agregar un comando, en cualquier extensión, es obligatorio respetar las normas del navegador,
+                resumidamente:
+              </p>
+              <ul>
+                <li>
+                  <strong>Debe tener la siguiente estructura:</strong>
+                  Primaria + "Shift" <span class="comment">(opcional)</span> + Secundaria.
+                </li>
+
+                <li class="down">Se puede añadir como tecla extra: "Shift".</li>
+
+                <li>
+                  <strong>Teclas Primarias:</strong>
+                  <ul class="up">
+                    <li>"Alt"</li>
+                    <li>"Ctrl" <span class="comment">(Windows y Linux)</span></li>
+                    <li>"Command" <span class="comment">(macOs)</span></li>
+                  </ul>
+                </li>
+
+                <li><strong>Primarias nunca pueden ir juntas:</strong>
+                  <ul class="up">
+                    <li>NO "Ctrl" + "Alt"</li>
+                    <li>NO "Command" + "Alt"</li>
+                  </ul>
+                </li>
+
+                <li>
+                  <strong>Teclas secundarias:</strong> Letras, números, barra espaciadora, flechas, teclas
+                  multimedia...
+                </li>
+
+                <li><strong>No se pueden usar las teclas:</strong> "Tab" ni "AltGr".</li>
+                <li><strong>Los atajos de teclado son únicos</strong>, no se puede añadir el mismo comando
+                  2 veces, aunque sea de otra extensión.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </footer>
+      </details>
+    </section>
+
+    <section aria-labelledby="section-2">
+      <details>
+        <summary>
+          <h2 id="section-2">Listado de webs activas</h2>
+        </summary>
+        <p id="open-section-2">
+          Todas las acciones descritas en este punto se realizan desde la <a
+            href="../config/provider/configProvider.html">Configuración de Webs</a>.
+        </p>
+        <p class="bold down">En la configuración existen 2 listas:</p>
+        <ul>
+          <li><strong>"Webs Activas"</strong>:
+            webs a las que podrás navegar cuando se use la extensión. <br>
+            <span class="comment">Desde este listado se podrá Eliminar/Desactivar y Modificar cada parametro de la web
+              seleccionada.</span>
+          </li>
+          <li><strong>"Webs Propuestas"</strong>:
+            webs que se presupone que pueden ser de utilidad para el usuario. <br>
+            <span class="comment">Desde este listado se podrán Activar o Desactivar las webs propuestas.</span>
+          </li>
+        </ul>
+
+        <article>
+          <h3>Eliminar/Desactivar una web</h3>
+          <p>
+            Se podrá eliminar una web activa desde el botón con el icono de Desmarcar/Eliminar en la lista de "webs
+            activas". <br>
+            También se podrá eliminar desde el listado de "webs propuestas"
+            <span class="comment">(si
+              <a href="#note-providers-1">perteneciera<sup id="ref-providers-1"> 1 </sup></a>
+              a ese listado)
+            </span>.
+          </p>
+          <img class="image-center" loading="lazy" src="/assets/help-providers-dark-1.webp"
+            alt="Muestra donde se encuentra el botón de eliminar en las listas 'webs activas' y 'webs propuestas'">
+        </article>
+
+        <article>
+          <h3>Modificar una web</h3>
+          <p>Solo se podrán modificar las webs que estén activas.</p>
+
+          <p class="down bold">Pasos a seguir para modificar una web activa:</p>
+          <ol start="0">
+            <li>Ir a la lista de <a href="../config/provider/configProvider.html#enabled-web-list">"Webs activas"</a>.
+            </li>
+            <li>Busca la web que quieras editar y pulsa su botón de editar.</li>
+            <li>Modifica a tu gusto.</li>
+            <li>Pulsa el botón de Aceptar o Cancelar, para guardar o descartar los cambios.</li>
+          </ol>
+          <img class="image-center" loading="lazy" src="/assets/help-providers-dark-2.webp"
+            alt="Muestra los pasos descrito anteriormente para modificar los datos de una web">
+
+          <p class="bold">Se podrá editar:</p>
+          <ul>
+            <li><strong>Título</strong>: Lo que verás cuando actives la extensión.</li>
+            <li><strong>URL</strong>:
+              Es la dirección web a la que navegarás, con los parámetros de búsquedas y la
+              <a href="#note-providers-2">palabra clave<sup id="ref-providers-2"> 2 </sup></a>.
+              <p>Se debe de tener en cuenta que:</p>
+              <ul>
+                <li>Debe contener el protocolo "<strong>http://</strong>" o "<strong class="bold">https://</strong>"
+                </li>
+                <li>
+                  Debe contener como mínimo una vez la
+                  <a href="#note-providers-2">palabra clave<sup> 2
+                    </sup></a>: --DirectlyExtension--
+                </li>
+                <li><strong>No pueden haber dos URL idénticas en el listado de webs activas</strong>.</li>
+                <li>Las modificaciones de las URL no afectan a las URL del listado "webs propuestas".</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Añadir una web</h3>
+          <p>
+            No te limites a las webs que te proponemos, puedes ingresar la web que quieras.
+            <span class="comment">(siempre que cumpla con los requisitos)</span>
+          </p>
+          <p class="bold down">Existen 2 formas (+ 1 en desarrollo) de añadir una web al listado de webs activas:</p>
+
+          <ul>
+            <li>
+              <h4>Activar una Web propuesta</h4>
+              <details>
+                <summary>
+                  Pasos a seguir:
+                </summary>
+                <p>Para ello hay que ir a la lista de <a
+                    href="../config/provider/configProvider.html#default-web-list">Webs propuestas</a> y desde ahí
+                  activarla pulsando el
+                  botón con el icono de añadir/favoritos.</p>
+                <img class="image-center" loading="lazy" src="/assets/help-providers-dark-3.webp"
+                  alt="Muestra cual es el botón para añadir/activar una web propuesta">
+              </details>
+            </li>
+            <li>
+              <h4>Modificar una Web activa</h4>
+              <details>
+                <summary>
+                  Pasos a seguir:
+                </summary>
+                <ol start="0">
+                  <li>Ir a la web que te interesa añadir.</li>
+                  <li>
+                    <p>
+                      Buscar en su navegador interno la <a href="#note-providers-2">palabra
+                        clave<sup> 2</sup></a>: --DirectlyExtension--
+                    </p>
+                    <p class="comment">Asegúrate de:</p>
+                    <ol class="comment">
+                      <li>No tener filtros aplicados que luego en la búsqueda no desees.</li>
+                      <li>Solo haber buscado "--DirectlyExtension--"</li>
+                    </ol>
+                  </li>
+                  <li>
+                    Revisa la nueva URL de la página:
+                    <ul>
+                      <li><span class="bold">SÍ aparece</span> "DirectlyExtension" o "--DirectlyExtension--": copia la
+                        URL
+                        completa.</li>
+                      <li><span class="bold">NO aparece</span> "DirectlyExtension" o "--DirectlyExtension--": esa web
+                        <span class="bold">no</span>
+                        es apta para usar con esta
+                        extensión.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>Ir a la lista de <a href="../config/provider/configProvider.html#default-web-list">Webs
+                      propuestas</a> y activar una web cualquiera de la lista.</li>
+                  <li>Ir a la lista de Webs activas y darle al botón de editar <span class="comment">(de la web que
+                      acabamos de activar)</span>.</li>
+                  <li>
+                    <p>Sustituir su URL con la que hemos copiado anteriormente.</p>
+                    <p class="comment"><span class="bold">Opcional:</span> Cambiar el título para evitar confusión.</p>
+                  </li>
+                  <li>Aceptar los cambios.</li>
+                </ol>
+                <img class="image-center" loading="lazy" src="/assets/help-providers-dark-4_1.webp"
+                  alt="Muestra los pasos 1 y 2">
+                <img class="image-center" loading="lazy" src="/assets/help-providers-dark-4_2.webp"
+                  alt="Muestra los pasos del 3 al 6">
+              </details>
+            </li>
+            <li>
+              <h4>Añadir una web desde el botón "añadir nueva url"</h4>
+              <p>Funcionalidad en desarrollo</p>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Cambiar el orden de las webs activas</h3>
+          <p>En esta versión Beta no se encuentra esta funcionalidad, se añadirá más adelante.</p>
+          <p>La unica forma para re-ordenar la lista es eliminando y añadiendo las webs en el orden que interese.</p>
+        </article>
+
+        <footer class="notes">
+          <h3>Aclaración de conceptos:</h3>
+          <ol>
+            <li class="note">
+              <a id="note-providers-1" href="#ref-providers-1">
+                Pertenencia a "webs propuestas":
+              </a>
+              <p>
+                Lo que hace que una web activada pertenezca o no a la lista de "webs propuestas" es su URL. <br>
+                No importa la modificación de su título. <br>
+                No importa si se ha añadido la nueva web modificando la URL de otra web activa o propuesta.
+              </p>
+            </li>
+
+            <li class="note">
+              <a id="note-providers-2" href="#ref-providers-2">Palabra clave:</a>
+              --DirectlyExtension--
+              <p>
+                Es lo que será sustituido por la consulta cuando se use la extensión. <br>
+                Un requisito fundamental para el manejo de la extensión.
+              </p>
+            </li>
+          </ol>
+        </footer>
+      </details>
+    </section>
+
+    <section aria-labelledby="section-3">
+      <details>
+        <summary>
+          <h2 id="section-3">Uso de la extensión</h2>
+        </summary>
+
+        <p id="open-section-3">Para usar la extensión solo hay que seguir 3 pasos:</p>
+        <ol>
+          <li>Abrir la extensión.</li>
+          <li>Escribir o no la consulta.</li>
+          <li>Seleccionar la web a la que quieres navegar.</li>
+        </ol>
+        <img class="image-center" loading="lazy" src="/assets/help-use-dark-1.webp"
+          alt="Representa gráficamente los pasos descritos anteriormente">
+
+        <article>
+          <h3>Abrir la extensión</h3>
+          <p>La extensión se puede abrir de 2 formas:</p>
+          <ul>
+            <li>Con los <a href="#open-section-1">atajos de teclado</a>.</li>
+            <li>Pulsando sobre el icono de la extensión, se abriría la extensión en una nueva pestaña.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Consultas</h3>
+          <p>Dependiendo de <strong>si escribes o no una consulta</strong> puedes navegar dentro de una
+            misma web:</p>
+          <ul>
+            <li><strong>Con consulta</strong>: viajarás a la consulta, como si lo hubieras escrito
+              directamente en su
+              barra de búsqueda.</li>
+            <li><strong>Sin consulta</strong>: viajarás a la página principal <span class="comment">(home)</span> de esa
+              web.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Seleccionar la web</h3>
+          <p>Después de pulsar "Enter" o el botón de buscar, te aparecerá una lista con las <a
+              href="#open-section-2">webs
+              activas</a>.</p>
+          <p class="bold down">Para navegar entre las opciones:</p>
+          <ul>
+            <li><strong>Flechas del teclado</strong></li>
+            <li>Las teclas "<strong>Tab</strong>" y "<strong>Shift + Tab</strong>"</li>
+            <li><strong>Ratón</strong></li>
+          </ul>
+
+          <p class="bold down">Para Seleccionar la web que deseas puedes usar:</p>
+          <p class="comment up">"Enter" podrá ser la tecla "Enter" o el "clic" del ratón.</p>
+          <ul>
+            <li>"<strong>Enter</strong>" : para navegar en esa misma pestaña.</li>
+            <li>
+              "<strong>Ctrl + Enter</strong>" : para navegar en una nueva
+              pestaña.
+            </li>
+            <li>
+              <span class="comment">(macOS)</span> "<strong>Cmd + Enter</strong>" : para navegar en una
+              nueva pestaña.
+            </li>
+          </ul>
+        </article>
+
+
+        <article>
+          <h3>Cancelar la ejecución de la extensión</h3>
+          <p>Se puede salir de la extensión de las siguientes formas:</p>
+          <ul>
+            <li>Pulsando la tecla "Esc"</li>
+            <li>Haciendo "Clic" fuera del límete de la extensión.</li>
+          </ul>
+        </article>
+      </details>
+    </section>
+
+    <section aria-labelledby="section-4" hidden>
+      <details>
+        <summary>
+          <h2 id="section-4">Reportar errores y sugerencias</h2>
+        </summary>
+
+        <p id="open-section-4">Para informar de errores o enviar sugerencias se hará desde el mismo lugar.......</p>
+
+      </details>
+    </section>
+  </main>
+</body>
+
+</html>

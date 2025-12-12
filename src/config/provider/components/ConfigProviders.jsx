@@ -20,7 +20,7 @@ export function ConfigProviders({ children }) {
         </div>
       )}
 
-      <section className={styles["section"]}>
+      <section className={styles["section"]} id="enabled-web-list">
         <h2 className={styles["title"]}>Webs activas</h2>
         <ul className={styles["enabled-list"]}>
           {enabled.list.map((provider, index) => (
@@ -31,8 +31,8 @@ export function ConfigProviders({ children }) {
         </ul>
       </section>
 
-      <section className={styles["section"]}>
-        <h2 className={styles["title"]}>Webs default</h2>
+      <section className={styles["section"]} id="default-web-list">
+        <h2 className={styles["title"]}>Webs propuestas</h2>
         <ul className={styles["default-list"]}>
           {defaults.list.map(([category, value]) => (
             <DefaultProviderCategory key={category} category={category} actions={defaults.actions}>
