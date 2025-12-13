@@ -120,13 +120,11 @@ h2 {
   font-size: 2rem;
 }
 h3 {
-  margin-block-start: 2.7rem;
-
   font-size: 1.5rem;
   color: var(--filament-color_2);
 }
 h4 {
-  margin-block-start: 1.5rem;
+  margin-block-start: 2rem;
 
   font-size: 1.3rem;
   color: var(--filament-color_2);
