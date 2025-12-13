@@ -30,6 +30,14 @@ export function MenuConfig({ children }) {
         >
           help
         </a>
+        <a
+          href="../../doc/info.html"
+          target="_blank"
+          rel="noopener"
+          className={`${styles["element"]} ${children === 4 ? styles["current"] : ""}`}
+        >
+          info
+        </a>
       </ul>
     </menu>
   );
