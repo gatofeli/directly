@@ -26,15 +26,10 @@
     "type": "module"
   },
   "commands": {
-    "openInNewTab": {
+    "_execute_action": {
       "suggested_key": {
-        "default": "Ctrl+Space",
-        "windows": "Ctrl+Space",
-        "linux": "Ctrl+Space",
-        "chromeos": "Ctrl+Space",
-        "mac": "Shift+Alt+Space"
-      },
-      "description": "Activar la extensión en la misma pestaña"
+        "default": "Ctrl+Space"
+      }
     }
   }
 }
