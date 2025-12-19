@@ -1,44 +1,53 @@
+import { NAME } from "@utils/constants/default";
 import styles from "./EmptyProviderList.module.css";
 
 export function EmptyProviderList() {
   return (
     <>
-      <p className={styles["symbol"]} aria-hidden="true">
-        ^◔ᴥ◔^
-      </p>
-      <h1 className={styles["title"]}>Parece que tu lista de webs favoritas está vacía...</h1>
+      <main className={styles["epl-main"]}>
+        <h1 className={styles["epl-title"]}>Tu lista de "webs activas" está vacía</h1>
 
-      <div>
-        <p className={styles["text"]}>Todo tiene solución:</p>
+        <p>No te preocupes, es una simple configuración.</p>
 
-        <ul className={`${styles["text"]} ${styles["list"]}`}>
-          <li>
-            Activa algunas de las webs predefinidas que te proponemos{" "}
-            <a className={styles["anchor"]} href="../../../../src/config/provider/configProvider.html">
-              desde la configuración.
-            </a>
-          </li>
-
-          <li>
+        <section aria-labelledby="section-new-user" className={styles["epl-section_details"]}>
+          <details>
+            <summary>
+              <h2 id="section-new-user">¿ Acabas de instalar la extensión ?</h2>
+            </summary>
+            <p>¡ Gracias por instalar {NAME} !</p>
             <p>
-              <span className={styles["temporary"]}>{"( Provisional )  "}</span>
-              Añade la web que prefieras, y luego modifica su URL. <br />
-              Si modificaste una web predefinida podrás volvera a activarla.
+              Antes de configurar el listado de webs activas, comprueba que tienes configurado un atajo de teclado para
+              abrir esta extensión:
             </p>
-          </li>
+            <ol>
+              <li>
+                Copia y dirígete a este link en tu navegador: <strong>chrome://extensions/shortcuts</strong>
+              </li>
+              <li>Revisa que en la sección de la extensión de {NAME} exista un atajo de teclado.</li>
+            </ol>
 
-          <li>
-            <span className={styles["coming"]}>{"( Próximamente )  "}</span> Añadir la web que prefieras directamente, sin entrar en la configuración.
-          </li>
+            <p>Y ahora sí, te dejamos con la configuración de las webs.</p>
+          </details>
+        </section>
 
-          <li hidden>
-            Añade la web que más te interese{" "}
-            <a className={styles["anchor"]} href="">
-              siguiendo estos sencillos pasos.
+        <section className={styles["epl-section_no-details"]}>
+          <p>
+            Para ir a la configuración del listado de webs activas{" "}
+            <a rel="noopener" target="_blank" href="../../../../src/config/provider/configProvider.html">
+              Clic aquí.
             </a>
-          </li>
-        </ul>
-      </div>
+          </p>
+        </section>
+      </main>
+
+      <footer className={styles["epl-footer"]}>
+        <p>
+          Si tienes alguna duda por favor usa la{" "}
+          <a rel="noopener" target="_blank" href="../../../../src/doc/help.html">
+            Guía de la extensión.
+          </a>
+        </p>
+      </footer>
     </>
   );
 }
