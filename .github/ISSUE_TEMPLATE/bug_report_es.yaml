@@ -1,0 +1,82 @@
+name: "Bug report (spanish)"
+description: "Formulario en español para reportar errores."
+body:
+  - type: dropdown
+    attributes:
+      label: "¿El error se produjo estando con el navegador en modo incógnito?"
+      multiple: false
+      options:
+        - "No"
+        - "Sí"
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: "¿Con qué frecuencia sucede ese error?"
+      multiple: false
+      options:
+        - "Solo una vez"
+        - "Frecuentemente"
+        - "Siempre"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Descripción del error"
+      description: "¿Qué ha sucedido?"
+      placeholder: "Ha explotado el microondas cuando lo encendí."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Resultado esperado"
+      description: "¿Qué esperaba que sucediera?"
+      placeholder: "Esperaba tener la dinamita calentita."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Pasos para reproducir el error"
+      description: "Describa las condiciones o los pasos previos para porder reproducir el error."
+      placeholder: |
+        1) No tener ninguna web activada. 
+        2) Activar la extension 
+        3) ...
+
+  - type: textarea
+    attributes:
+      label: Logs del error
+      description: "Rellene este campo solamente si sabe que son los logs y considera que son necesarios para dar información extra del error."
+
+  - type: input
+    id: "ext_v"
+    attributes:
+      label: "Versión de la extensión"
+      description: "Este campo se ha autocompletado, NO lo modifique, excepto si el error se produjo en otra versión de la extensión distinta a la indicada."
+      placeholder: "<version_name> - <version>"
+    validations:
+      required: true
+
+  - type: input
+    id: "ext_p"
+    attributes:
+      label: "Permisos rechazados de la extensión"
+      description: "Este campo se ha autocompletado, NO lo modifique, excepto si el error se produjo con otros permisos (rechazados) distintos a los indicados."
+  
+  - type: input
+    id: "b"
+    attributes:
+      label: "Navegador usado"
+      description: "Este campo se ha autocompletado, NO lo modifique, excepto si el error se produjo en otro navegador o versión de navegador distinto al indicado."
+      placeholder: "<name> - <version>"
+  
+  - type: input
+    id: "os"
+    attributes:
+      label: "Sistema operativo"
+      description: "Este campo se ha autocompletado, NO lo modifique, excepto si el error se produjo en otro sistema operativo distinto al indicado."
+      placeholder: "<name>"
