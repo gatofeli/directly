@@ -7,9 +7,7 @@ export function App() {
     <>
       <MenuConfig>{2}</MenuConfig>
 
-      <main className={styles["config-main"]}>
-        <InBuild />
-      </main>
+      <main className={styles["config-main"]}></main>
     </>
   );
 }
