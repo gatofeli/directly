@@ -2,7 +2,6 @@ import { MenuConfig } from "../utils/MenuConfig";
 import styles from "./App.module.css";
 
 export function App() {
-  //@ts-ignore : La librería de tipos de chrome está desactualizada
   const version: string = chrome.runtime.getVersion();
 
   return (
