@@ -41,7 +41,11 @@ export function App() {
               <section className={styles["report"]}>
                 <h3>Sugerencias</h3>
                 <p>Cuéntame que mejoras o cambios te gustaría tener en siguientes actualizaciones.</p>
-                <a href="#" target="_blank" rel="noopener">
+                <a
+                  href="https://github.com/gatofeli/directly/discussions/new?category=ideas"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Reportar Sugerencia
                 </a>
               </section>
@@ -61,7 +65,11 @@ export function App() {
               <section className={styles["report"]}>
                 <h3>Dudas</h3>
                 <p>Dudas que tengas o reportes que no entre dentro de reportar error o sugerencia.</p>
-                <a href="#" target="_blank" rel="noopener">
+                <a
+                  href="https://github.com/gatofeli/directly/discussions/new?category=general"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Reportar Duda
                 </a>
               </section>
