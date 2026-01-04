@@ -24,10 +24,10 @@ export function MenuConfig({ children }) {
 
         <li>
           <a
-            href="../reportBug/configBug.html"
+            href="../report/configReport.html"
             className={`${styles["element"]} ${children === 2 ? styles["current"] : ""}`}
           >
-            Bugs y Sugerencias
+            Errores y Sugerencias
           </a>
         </li>
 

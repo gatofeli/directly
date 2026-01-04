@@ -35,7 +35,7 @@
       "@config-provider/*": ["src/config/provider/*"],
       "@config-theme/*": ["src/config/theme/*"],
       "@config-info/*": ["src/config/info/*"],
-      "@config-bug/*": ["src/config/reportBug/*"],
+      "@config-bug/*": ["src/config/report/*"],
       "@config-utils/*": ["src/config/utils/*"],
 
       "@background/*": ["src/background/*"]
