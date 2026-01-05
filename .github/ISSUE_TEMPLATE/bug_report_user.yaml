@@ -1,0 +1,119 @@
+name: "Bug report (User)"
+description: "Report a problem using simple steps. No technical knowledge required."
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Thank you for reporting an issue!
+
+        **This form is intended for users without technical knowledge. If you are a developer or tester, [click here](https://github.com/gatofeli/directly/issues/new?template=bug_report_tester.yaml)**
+
+        Help me understand the issue you encountered and try to reproduce it on my machine so I can fix it.
+        The information you provide will help improve the extension.
+
+  - type: input
+    id: "ext"
+    attributes:
+      label: "Extension version"
+      description: |
+        EN: Auto-filled when the issue is opened from the extension. Otherwise, check "Manage extensions" in your browser.
+
+        ES: Se rellena automáticamente al abrir la issue desde la extensión. Si no, revisa "Gestionar extensiones" en tu navegador.
+      placeholder: "1.0.0"
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: "Operating system"
+      description: |
+        EN: Which operating system were you using when the problem happened?
+
+        ES: ¿Qué sistema operativo estabas usando cuando ocurrió el problema?
+      placeholder: "Windows / macOS / Linux / ..."
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Browser"
+      description: |
+        EN: Which browser were you using when the problem happened?
+
+        ES: ¿Qué navegador estabas usando cuando ocurrió el problema?
+
+      placeholder: "Chrome / Brave / Opera / Edge / ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: "How often does it happen?"
+      description: |
+        EN: Indicate how often the problem happens.
+
+        ES: Indica cada cuánto ocurre el problema.
+      multiple: false
+      options:
+        - "I'm not sure / No estoy seguro"
+        - "Only happened once / Solo ha ocurrido una vez"
+        - "Sometimes / A veces"
+        - "Every time / Siempre"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Describe the problem"
+      description: |
+        EN: Use this space to explain the problem in detail.
+
+        ES: Usa este espacio para explicar el problema con detalle.
+      placeholder: |
+        EN: A short guide is available below to help you describe the problem.
+
+        ES: Abajo encontrarás una pequeña guía para ayudarte a describir el problema.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### (EN) Help to describe the problem
+
+        You can use the following questions as a guide.
+        You don't need to answer all of them, only the ones that apply.
+
+        - What happened?
+        - What should have happened?
+        - What does the developer need to do to reproduce the same error?
+          - Where did you click, what actions did you take...
+          - Were you using the browser in private/incognito mode?
+          - Was the "enabled websites" list empty?
+          - Had you just installed the extension?
+          - Any other detail you think could help reproduce the issue
+
+        ### (ES) Ayuda para describir el problema
+
+        Puedes usar las siguientes preguntas como guía.  
+        No es necesario responderlas todas, solo las que apliquen.
+
+        - ¿Qué ha sucedido?
+        - ¿Qué debería haber pasado?
+        - ¿Qué tiene que hacer el desarrollador para reproducir el mismo error?
+          - Dónde has clicado, qué has hecho...
+          - ¿Estabas usando el navegador en modo incógnito?
+          - ¿La lista de "webs activas" estaba vacía?
+          - ¿Acababas de instalar la extensión?
+          - Cualquier otro detalle que creas que puede ayudar a reproducir el error
+
+  - type: textarea
+    attributes:
+      label: "Screenshots or messages (optional)"
+      description: |
+        EN: You can add screenshots or copy any message you saw on screen.
+
+        ES: Puedes añadir capturas de pantalla o copiar cualquier mensaje que hayas visto.
+      placeholder: Drag images here or paste messages.
+    validations:
+      required: false
