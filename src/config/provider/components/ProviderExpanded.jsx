@@ -27,7 +27,7 @@ export function ProviderExpanded({ provider, setIsExpanded, updateDataProvider }
 
   return (
     <form onSubmit={handleSubmit} className={styles["form"]}>
-      <fieldset className={styles["wrapper-alias"]}>
+      <div className={styles["wrapper-alias"]}>
         <input
           type="text"
           name="alias"
@@ -39,9 +39,9 @@ export function ProviderExpanded({ provider, setIsExpanded, updateDataProvider }
           required
           aria-label="Alias"
         />
-      </fieldset>
+      </div>
 
-      <fieldset className={styles["wrapper-url"]}>
+      <div className={styles["wrapper-url"]}>
         <input
           type="url"
           name="url"
@@ -60,7 +60,7 @@ export function ProviderExpanded({ provider, setIsExpanded, updateDataProvider }
             ))}
           </ul>
         )}
-      </fieldset>
+      </div>
 
       <div className={styles["wrapper-button"]}>
         <button type="submit" className={styles["save"]} aria-label="Guardar">
