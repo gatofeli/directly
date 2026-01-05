@@ -2,8 +2,8 @@ import styles from "./MenuConfig.module.css";
 
 export function MenuConfig({ children }) {
   return (
-    <menu className={styles["wrapper"]}>
-      <ul className={styles["list"]}>
+    <nav className={styles["wrapper"]}>
+      <menu className={styles["list"]}>
         <li>
           <a
             href="../provider/configProvider.html"
@@ -42,7 +42,7 @@ export function MenuConfig({ children }) {
             información
           </a>
         </li>
-      </ul>
-    </menu>
+      </menu>
+    </nav>
   );
 }
