@@ -1,0 +1,77 @@
+name: "Bug report (Tester)"
+description: "Report a bug with clear technical details for reproduction."
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Thank you for reporting an issue!
+
+        **This form is intended for users with technical knowledge. If you are not a developer or tester, [click here](https://github.com/gatofeli/directly/issues/new?template=bug_report_user.yaml)**
+
+        Help me understand the issue you encountered and try to reproduce it on my machine so I can fix it.
+        The information you provide will help improve the extension.
+
+  - type: input
+    attributes:
+      label: "Extension version"
+      description: "Version of the extension where the issue was detected."
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Operating system"
+      description: "Operating system where the issue occurred."
+      placeholder: "Ubuntu 22.04 / macOS 14 / Windows 11 / ..."
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Browser"
+      description: "Browser and version used when the issue occurred."
+      placeholder: "Brave 1.85.118 / Chrome 121.0.6167.85 / ..."
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "How often does it happen?"
+      description: "Tell us how often it happens, in your own words."
+      placeholder: "Always / about half the time / only when X happens / not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Steps to reproduce"
+      description: "Provide a clear and minimal set of steps to reliably reproduce the issue."
+      placeholder: |
+        1) 
+        2) 
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Expected result"
+      description: "Describe the expected behavior according to the intended functionality."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Actual result"
+      description: "Describe the observed behavior."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Error messages / logs (if any)"
+      description: "Include console errors, stack traces, or other relevant logs if available."
+      placeholder: |
+        Example:
+        Uncaught TypeError: Cannot read properties of undefined
+    validations:
+      required: false
