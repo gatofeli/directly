@@ -53,7 +53,7 @@ export function App() {
                 <h3>Errores</h3>
                 <p>Si no estas seguro/a de que sea un error es mejor reportar una duda.</p>
                 <a
-                  href={`https://github.com/gatofeli/directly/issues/new?template=bug_report_es.yaml&ext=${version}`}
+                  href={`https://github.com/gatofeli/directly/issues/new?template=bug_report_user.yaml&ext=${version}`}
                   target="_blank"
                   rel="noopener"
                 >
