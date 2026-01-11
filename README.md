@@ -64,7 +64,9 @@ Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
 **Para viajar a la home de una web:**
 
-1. **`Ctrl + Space`** o el atajo que hayas decidido para abrir la extensión.
+1. **Abrir la extensión**:
+   - **Atajo de teclado** (recomendado).
+   - **Clic en el icono** de la extensión.
 2. **`Enter`** .
 3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
 4. **`Enter`** .
@@ -73,7 +75,9 @@ Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
 **Para buscar dentro de una web:**
 
-1. **`Ctrl + Space`** o el atajo que hayas decidido para abrir la extensión.
+1. **Abrir la extensión**:
+   - **Atajo de teclado** (recomendado).
+   - **Clic en el icono** de la extensión.
 2. **Escribe la consulta** y pulsa **`Enter`** .
 3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
 4. **`Enter`** .
@@ -97,43 +101,51 @@ Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
 ### Manual (modo desarrollador)
 
-0. Clona o **descarga este repositorio**.
-1. Abre el **gestor de extensiones** de tu navegador  `brave://extensions/`
-2. Activa el **modo desarrollador**.
-3. Haz clic en "**Cargar sin empaquetar**".
-4. Selecciona la raíz del proyecto.
+0. Instala `node.js >= 22`
+1. Clona o **descarga este repositorio**.
+2. Instala las dependencias del proyecto con **`npm install`**
+3. Usa el comando **`npm run build`** para generar la carpeta `dist`.
+4. Abre el **gestor de extensiones** de tu navegador  `brave://extensions/`
+5. Activa el **modo desarrollador**.
+6. Haz clic en "**Cargar sin empaquetar**".
+7. Selecciona la **carpeta `dist`** del proyecto.
 
 
 
 ## Configuración
 
-### Configurar los sitios web
+Un mensaje de ayuda a la configuración se mostrará cuando se active la extensión y su *Lista de webs activadas* se encuentre vacía o sin ningún dato valido *(es decir vacía, ya que los datos inválidos se descartarán)*.
 
-Si entras en la extensión y no tienes almacenada ninguna web, se activará automáticamente un mensaje de información en que te ayudará ha hacerlo, las opciones de almacenamiento serían:
+Al instalarse la extensión se activará automáticamente y por lo tanto (ya que lo más normal es no tener ninguna base de datos antes de la intalación) también se mostrará ese mensaje de ayuda para guiar al usuario.
 
-- **Activar** algunas de las webs que te proponemos en nuestra lista predeterminada.
+Configuración básica:
 
-- **Activar** alguna de las webs que te proponemos y modificarle la URL.
+- Personalización de la lista de webs activadas.
+- Personalización de los atajos de teclado.
 
-- ~~**Añadir** las webs que prefieras~~. *(Próximamente)*
-
-
-
-### Configurar los atajos de teclado
-
-Si no te gusta o si ya tienes ocupado el atajo de teclado predefinido. Puedes cambiarlo desde el gestor de extensiones de tu navegador
-
-- *Brave*: [`brave://extensions/shortcuts`](brave://extensions/shortcuts)
+*Toda la información necesaria para la configuración se encuentra en la página de ayuda de la extensión.*
 
 
-- *Chrome*: [`chrome://extensions/shortcuts`](chrome://extensions/shortcuts)
 
+## Reportes
 
-- *Opera:* [`opera://extensions/shortcuts`](opera://extensions/shortcuts)
+Los reportes (accesibles desde la extensión y desde github) se dividen en 3:
 
-  ...
+- **Reporte de Errores:**
+
+-  **Reporte de Dudas:**
+
+- **Reporte de Sugerencias:**
+
   
-  
+
+
+
+## Información sobre la documentación del código
+
+La documentación interna del código (comentarios, JSDoc/TSDoc, etc) se añadirá progresivamente a partir de la version 1.0.0.
+
+El proyecto está en fase beta y la estructura interna puede cambiar.
 
 ## Permisos y Privacidad
 
@@ -178,8 +190,6 @@ Compatibles con navegadores basados en Chromium o que puedan hacer uso de la Chr
 - Git
 - Chrome Extensions API (Manifest V3)
 
-
-
 ## Licencia
 
 Este proyecto está disponible bajo la licencia [GPL v3](./LICENSE).
@@ -192,7 +202,7 @@ Este proyecto está disponible bajo la licencia [GPL v3](./LICENSE).
 
 ¿Y por qué no decirlo? que me ayude en la temible odisea de la búsqueda laboral.
 
-
+Este proyecto no es, ni pretende ser perfecto, pero intento hacer uso de las convenciones, las buenas prácticas y tener un código limpio, mantenible y escalable. También se intenta que sea accesible y semántico.
 
 ## Autor
 
