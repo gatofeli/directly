@@ -7,7 +7,7 @@ export function EnabledProvider({ children, actions }) {
   const { updateDataProvider, removeProvider } = actions;
 
   return (
-    <li aria-expanded={isExpanded}>
+    <li>
       {isExpanded ? (
         <ProviderExpanded provider={children} setIsExpanded={setIsExpanded} updateDataProvider={updateDataProvider} />
       ) : (
