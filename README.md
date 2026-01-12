@@ -20,9 +20,7 @@ Directly navegará a:
 - La **home** cuando no se escribe ninguna consulta.
 - La **búsqueda** cuando sí se ha escrito una consulta. 
 
-Es accesible desde cualquier pestaña del navegador con un simple atajo teclado.
-
-
+Es accesible desde cualquier pestaña del navegador con un simple atajo de teclado.
 
 ## ¿A quién va dirigido?
 
@@ -38,85 +36,77 @@ Como por ejemplo:
 - **Desarrolladores y técnicos** que consultan documentación, repositorios, guías o referencias técnicas.
 - **Usuarios avanzados** que prefieran usar atajos de teclado y flujos directos en lugar de clics innecesarios. 
 
-
-
-En resumen, para quienes ya saben **adonde quieren ir**, y solo necesitan llegar **más rápido**.
-
-
+En resumen, para quienes ya saben **a dónde quieren ir**, y solo necesitan llegar **más rápido**.
 
 ## Características principales
 
 - Barra de consultas **rápida y accesible** desde cualquier pestaña.
 - Soporte para navegadores basados en Chromium.
 - Atajos de teclado personalizables.
-
 - **Privada:** Sin cuentas, sin sincronización, sin telemetría.
-
 - **Sin publicidad, ni recopilación o venta de datos.**
-
 - **Gratuita y Sencilla**.
-
-  
 
 ## Cómo funciona
 
 Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
-**Para viajar a la home de una web:**
-
-1. **Abrir la extensión**:
-   - **Atajo de teclado** (recomendado).
-   - **Clic en el icono** de la extensión.
-2. **`Enter`** .
-3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
-4. **`Enter`** .
-
+- **Navegar a la home de una web:**
+  1. **Abrir la extensión**:
+     - **Atajo de teclado** (recomendado).
+     - **Clic en el icono** de la extensión.
+  2. **`Enter`** .
+  3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
+  4. **`Enter`** .
 
 
-**Para buscar dentro de una web:**
-
-1. **Abrir la extensión**:
-   - **Atajo de teclado** (recomendado).
-   - **Clic en el icono** de la extensión.
-2. **Escribe la consulta** y pulsa **`Enter`** .
-3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
-4. **`Enter`** .
-
+- **Buscar dentro de una web:**
+  1. **Abrir la extensión**:
+     - **Atajo de teclado** (recomendado).
+     - **Clic en el icono** de la extensión.
+  2. **Escribe la consulta** y pulsa **`Enter`** .
+  3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
+  4. **`Enter`** .
 
 
 ## Instalación
 
 ### Desde la Store (Próximamente)
 
-> **Nota:** La extensión aún no está publicada en la store. Para probarla puedes instalarla en modo desarrollador (ver la sección <a>"Manual (modo desarrollador)"</a>).
+> **Nota:** La extensión aún no está publicada en la store. Para probarla puedes instalarla en modo desarrollador (ver la sección de [instalación manual](#manual-modo-desarrollador)).
 >
 > Cuando publiquemos la **beta** se actualizará este apartado con el enlace.
 
-
-
 **Instala la extensión** desde la ~~<a href=#>Chrome Web Store</a>~~ o la **tienda oficial de tu navegador**.
-
-
 
 
 ### Manual (modo desarrollador)
 
 0. Instala `node.js >= 22`
+
+   > Node.js es necesario únicamente para generar los archivos de la extensión (carpeta `dist`) en modo desarrollador.
+   >
+   > Para usar la extensión, no es necesario tener Node.js ni el código del repositorio.
+
 1. Clona o **descarga este repositorio**.
+
 2. Instala las dependencias del proyecto con **`npm install`**
+
 3. Usa el comando **`npm run build`** para generar la carpeta `dist`.
+
 4. Abre el **gestor de extensiones** de tu navegador  `brave://extensions/`
+
 5. Activa el **modo desarrollador**.
+
 6. Haz clic en "**Cargar sin empaquetar**".
+
 7. Selecciona la **carpeta `dist`** del proyecto.
-
-
 
 ## Configuración
 
-Un mensaje de ayuda a la configuración se mostrará cuando se active la extensión y su *Lista de webs activadas* se encuentre vacía o sin ningún dato valido *(es decir vacía, ya que los datos inválidos se descartarán)*.
+Un mensaje de ayuda a la configuración se mostrará cuando se active la extensión y su *Lista de webs activadas* se encuentre vacía o sin ningún dato válido *(es decir vacía, ya que los datos inválidos se descartarán)*.
 
-Al instalarse la extensión se activará automáticamente y por lo tanto (ya que lo más normal es no tener ninguna base de datos antes de la intalación) también se mostrará ese mensaje de ayuda para guiar al usuario.
+Al instalarse la extensión se activará automáticamente y por lo tanto (ya que lo más normal es no tener ninguna base de datos antes de la instalación) también se mostrará ese mensaje de ayuda para guiar al usuario.
 
 Configuración básica:
 
@@ -125,25 +115,48 @@ Configuración básica:
 
 *Toda la información necesaria para la configuración se encuentra en la página de ayuda de la extensión.*
 
+## Errores, Sugerencias y dudas
 
+ Todos los reportes relacionados con extensión se gestionan **exclusivamente a través de GitHub**.
 
-## Reportes
+Antes de crear uno, revisa las opciones disponibles para asegurarte de usar el canal correcto.
 
-Los reportes (accesibles desde la extensión y desde github) se dividen en 3:
+### Reportar un error:
 
-- **Reporte de Errores:**
+Si no estás completamente seguro de que sea un error, **no abras una issue**.
+En ese caso, [reporta una duda](#reportar-una-duda).
 
--  **Reporte de Dudas:**
+Los reportes de errores se realizan desde **Issues** y existen **dos plantillas distintas:**
 
-- **Reporte de Sugerencias:**
+- **Plantilla para usuarios con experiencia en desarrollo o testing**
+  - Pensada para reportes mejor estructurados y detallados.
+  - Solo es accesible desde la sección **Issues** de GitHub.
+- **Plantilla para usuarios sin experiencia técnica**
+  - Pensada para describir el problema de forma sencilla.
+  - Accesible desde:
+    - La sección **Issues** de GitHub.
+    - La pestaña **"Errores y Sugerencias"** dentro de la configuración de la extensión.
 
-  
+### Reportar una sugerencia
 
+Si tienes una idea para mejorar la extensión, proponer un cambio, añadir una nueva web como default o sugerir una nueva funcionalidad, utiliza este canal.
 
+Accesible desde:
+
+- **Discussions** en GitHub.
+- La pestaña **"Errores y Sugerencias"** dentro de la configuración de la extensión.
+
+### Reportar una duda
+
+Usa este canal para cualquier cosa que **no sea claramente un error ni una sugerencia de mejora**, por ejemplo:
+
+- Dudas sobre el funcionamiento de la extensión.
+- Situaciones que **podrían** ser un error, pero no estás seguro.
+- Preguntas de uso.
 
 ## Información sobre la documentación del código
 
-La documentación interna del código (comentarios, JSDoc/TSDoc, etc) se añadirá progresivamente a partir de la version 1.0.0.
+La documentación interna del código (comentarios, JSDoc/TSDoc, etc) se añadirá progresivamente a partir de la versión 1.0.0.
 
 El proyecto está en fase beta y la estructura interna puede cambiar.
 
@@ -164,21 +177,15 @@ El proyecto está en fase beta y la estructura interna puede cambiar.
 - **No vende ningún tipo de dato**.
 - **Todos los datos permanecen en tu navegador**.
 
-
-
 ## Compatibilidad
 
-Compatibles con navegadores basados en Chromium o que puedan hacer uso de la Chrome Web Store:
+Compatible con navegadores basados en Chromium o que puedan hacer uso de la Chrome Web Store:
 
-| Navegador      | Compatibilidad     |
-| -------------- | ------------------ |
-| Brave          | :white_check_mark: |
-| Opera          | :white_check_mark: |
-| Vivaldi        | :white_check_mark: |
-| Google Chrome  | :white_check_mark: |
-| Microsoft Edge | :white_check_mark: |
-
-
+- **Brave**
+- **Opera**
+- **Vivaldi**
+- **Google Chrome**
+- **Microsoft Edge**
 
 ## Tecnologías
 
@@ -194,15 +201,15 @@ Compatibles con navegadores basados en Chromium o que puedan hacer uso de la Chr
 
 Este proyecto está disponible bajo la licencia [GPL v3](./LICENSE).
 
-
-
 ## Filosofía del proyecto
 
-**Directly** nace de la desesperación de ahorrar pasos y los tiempos de carga, de la saturación de la pestaña de marcadores, y de la satisfacción de elaborar un proyecto que sea útil para los demás.
+**Directly** nace como una solución a una necesidad personal: optimizar flujos de navegación habituales y reducir pasos innecesarios al acceder a contenidos que se consultan con frecuencia. Desde el inicio, el objetivo ha sido crear una herramienta que resulte útil tanto para mí como para otras personas con hábitos de navegación similares.
 
-¿Y por qué no decirlo? que me ayude en la temible odisea de la búsqueda laboral.
+El proyecto se concibe como un espacio de aprendizaje y mejora continua, en el que voy consolidando conocimientos y habilidades a medida que avanzo en su desarrollo. Se presta atención al uso de convenciones, buenas prácticas y a mantener un código claro y comprensible, priorizando siempre la utilidad real y la experiencia de usuario.
 
-Este proyecto no es, ni pretende ser perfecto, pero intento hacer uso de las convenciones, las buenas prácticas y tener un código limpio, mantenible y escalable. También se intenta que sea accesible y semántico.
+Directly no pretende ser un proyecto perfecto ni cerrado, sino una base en evolución. Muchas decisiones se toman de forma consciente en función del nivel actual y del contexto del proyecto, con la intención de iterar, refactorizar y mejorar progresivamente a medida que se adquiere mayor experiencia.
+
+
 
 ## Autor
 
