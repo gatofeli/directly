@@ -51,23 +51,21 @@ En resumen, para quienes ya saben **a dónde quieren ir**, y solo necesitan lleg
 
 Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
-- **Navegar a la home de una web:**
-  1. **Abrir la extensión**:
-     - **Atajo de teclado** (recomendado).
-     - **Clic en el icono** de la extensión.
-  2. **`Enter`** .
-  3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
-  4. **`Enter`** .
+**Navegar a la home de una web:**
+1. **Abrir la extensión**:
+   - **Atajo de teclado** (recomendado).
+   - **Clic en el icono** de la extensión.
+2. **`Enter`** .
+3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
+4. **`Enter`** .
 
-
-- **Buscar dentro de una web:**
-  1. **Abrir la extensión**:
-     - **Atajo de teclado** (recomendado).
-     - **Clic en el icono** de la extensión.
-  2. **Escribe la consulta** y pulsa **`Enter`** .
-  3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
-  4. **`Enter`** .
-
+**Buscar dentro de una web:**
+1. **Abrir la extensión**:
+   - **Atajo de teclado** (recomendado).
+   - **Clic en el icono** de la extensión.
+2. **Escribe la consulta** y pulsa **`Enter`** .
+3. **Seleccionas la web** que quieras visitar con las **flechas o tabulador**.
+4. **`Enter`** .
 
 ## Instalación
 
