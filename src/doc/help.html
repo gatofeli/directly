@@ -109,7 +109,7 @@
               </a>
               <p>
                 Hay ciertas pestañas <span class="comment">(URLs)</span> que están restringidas a las extensiones por
-                motivos de seguridad (configuracion del navegador, nueva pestaña, ...),
+                motivos de seguridad (configuración del navegador, nueva pestaña, ...),
                 en estos casos la extensión siempre se abriría en una nueva pestaña.
               </p>
               <p>
@@ -140,7 +140,7 @@
                   <ul class="up">
                     <li>"Alt"</li>
                     <li>"Ctrl" <span class="comment">(Windows y Linux)</span></li>
-                    <li>"Command" <span class="comment">(macOs)</span></li>
+                    <li>"Command" <span class="comment">(macOS)</span></li>
                   </ul>
                 </li>
 
@@ -180,7 +180,7 @@
         <ul>
           <li><strong>"Webs Activas"</strong>:
             webs a las que podrás navegar cuando se use la extensión. <br>
-            <span class="comment">Desde este listado se podrá Eliminar/Desactivar y Modificar cada parametro de la web
+            <span class="comment">Desde este listado se podrá Eliminar/Desactivar y Modificar cada parámetro de la web
               seleccionada.</span>
           </li>
           <li><strong>"Webs Propuestas"</strong>:
@@ -217,7 +217,7 @@
             <li>Pulsa el botón de Aceptar o Cancelar, para guardar o descartar los cambios.</li>
           </ol>
           <img class="image-center" loading="lazy" src="/assets/help-providers-dark-2.webp"
-            alt="Muestra los pasos descrito anteriormente para modificar los datos de una web">
+            alt="Muestra los pasos descritos anteriormente para modificar los datos de una web">
 
           <p class="bold">Se podrá editar:</p>
           <ul>
@@ -225,17 +225,21 @@
             <li><strong>URL</strong>:
               Es la dirección web a la que navegarás, con los parámetros de búsquedas y la
               <a href="#note-providers-2">palabra clave<sup id="ref-providers-2"> 2 </sup></a>.
-              <p>Se debe de tener en cuenta que:</p>
+              <p>Se debe tener en cuenta que:</p>
               <ul>
+                <li><strong>No pueden haber dos URL idénticas en el listado de webs activas</strong>.</li>
                 <li>Debe contener el protocolo "<strong>http://</strong>" o "<strong class="bold">https://</strong>"
                 </li>
                 <li>
-                  Debe contener como mínimo una vez la
-                  <a href="#note-providers-2">palabra clave<sup> 2
-                    </sup></a>: --DirectlyExtension--
+                  <p>Debe contener como mínimo una vez la
+                    <a href="#note-providers-2">palabra clave<sup> 2
+                      </sup></a>: --DirectlyExtension--
+                  </p>
+                  <p class="comment">Ejemplo de URL
+                    válida: <code>https://www.ejemplo.com/buscar?q=--DirectlyExtension--</code></p>
                 </li>
-                <li><strong>No pueden haber dos URL idénticas en el listado de webs activas</strong>.</li>
-                <li>Las modificaciones de las URL no afectan a las URL del listado "webs propuestas".</li>
+                <li class="down">Si has modificado una de las Webs propuestas, puedes recuperar su URL original
+                  desactivándola y volviéndola a activar.</li>
               </ul>
             </li>
           </ul>
@@ -247,70 +251,71 @@
             No te limites a las webs que te proponemos, puedes ingresar la web que quieras.
             <span class="comment">(siempre que cumpla con los requisitos)</span>
           </p>
+
           <p class="bold down">Existen 2 formas (+ 1 en desarrollo) de añadir una web al listado de webs activas:</p>
 
           <ul>
             <li>
               <h4>Activar una Web propuesta</h4>
-              <details>
-                <summary>
-                  Pasos a seguir:
-                </summary>
-                <p>Para ello hay que ir a la lista de <a
-                    href="../config/provider/configProvider.html#default-web-list">Webs propuestas</a> y desde ahí
-                  activarla pulsando el
-                  botón con el icono de añadir/favoritos.</p>
-                <img class="image-center" loading="lazy" src="/assets/help-providers-dark-3.webp"
-                  alt="Muestra cual es el botón para añadir/activar una web propuesta">
-              </details>
+              <p class="comment">(Recomendado si quieres ir a lo sencillo)</p>
+              <p>Para ello hay que ir a la lista de <a
+                  href="../config/provider/configProvider.html#default-web-list">Webs propuestas</a> y desde ahí
+                activarla pulsando el
+                botón con el icono de añadir/favoritos.</p>
+              <img class="image-center" loading="lazy" src="/assets/help-providers-dark-3.webp"
+                alt="Muestra cual es el botón para añadir/activar una web propuesta">
             </li>
             <li>
-              <h4>Modificar una Web activa</h4>
-              <details>
-                <summary>
-                  Pasos a seguir:
-                </summary>
-                <ol start="0">
-                  <li>Ir a la web que te interesa añadir.</li>
-                  <li>
-                    <p>
-                      Buscar en su navegador interno la <a href="#note-providers-2">palabra
-                        clave<sup> 2</sup></a>: --DirectlyExtension--
-                    </p>
-                    <p class="comment">Asegúrate de:</p>
-                    <ol class="comment">
-                      <li>No tener filtros aplicados que luego en la búsqueda no desees.</li>
-                      <li>Solo haber buscado "--DirectlyExtension--"</li>
-                    </ol>
-                  </li>
-                  <li>
-                    Revisa la nueva URL de la página:
-                    <ul>
-                      <li><span class="bold">SÍ aparece</span> "DirectlyExtension" o "--DirectlyExtension--": copia la
-                        URL
-                        completa.</li>
-                      <li><span class="bold">NO aparece</span> "DirectlyExtension" o "--DirectlyExtension--": esa web
-                        <span class="bold">no</span>
-                        es apta para usar con esta
-                        extensión.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>Ir a la lista de <a href="../config/provider/configProvider.html#default-web-list">Webs
-                      propuestas</a> y activar una web cualquiera de la lista.</li>
-                  <li>Ir a la lista de Webs activas y darle al botón de editar <span class="comment">(de la web que
-                      acabamos de activar)</span>.</li>
-                  <li>
-                    <p>Sustituir su URL con la que hemos copiado anteriormente.</p>
-                    <p class="comment"><span class="bold">Opcional:</span> Cambiar el título para evitar confusión.</p>
-                  </li>
-                  <li>Aceptar los cambios.</li>
-                </ol>
-                <img class="image-center" loading="lazy" src="/assets/help-providers-dark-4_1.webp"
-                  alt="Muestra los pasos 1 y 2">
-                <img class="image-center" loading="lazy" src="/assets/help-providers-dark-4_2.webp"
-                  alt="Muestra los pasos del 3 al 6">
-              </details>
+              <h4>Modificando la URL de una web que ya esté activada</h4>
+              <p>
+                Esta es una forma de añadir webs que no se encuentren en la lista de "Webs propuestas", aprovechando
+                que se permite cambiar cualquier parte de una URL que ya tengamos.
+              </p>
+              <p class="comment">(Es un poco más complejo de seguir)</p>
+              <ol>
+                <li>
+                  <p class="bold">
+                    Comprobar que la web que quieres añadir puede funcionar en la extensión:
+                  </p>
+                  <p>
+                    En el buscador de la web que queremos añadir, buscaremos la <a href="#note-providers-2">palabra
+                      clave de la extensión<sup>2</sup></a>:
+                    <br>
+                    <code>--DirectlyExtension--</code>
+                  </p>
+                  <p class="down">
+                    <span class="bold">ATENCIÓN:</span> No se podrá usar esa web en el caso de que:
+                  </p>
+                  <ul>
+                    <li>Esa web no tenga un buscador.</li>
+                    <li>La URL no contiene la palabra clave (con o sin guiones), una vez buscada.</li>
+                  </ul>
+                  <p class="comment">Ejemplo de URL válida: <br>
+                    <code>https://www.ejemplo.com/buscar?q=--DirectlyExtension--</code>
+                  </p>
+                  <p class="comment down">Ejemplo de URL NO válida: <br>
+                    <code>https://www.ejemplo.com/buscar</code>
+                  </p>
+                </li>
+                <li>
+                  Copiar la URL completa (solo si la comprobación "dice" que es válida).
+                </li>
+                <li>
+                  Vuelve a la extensión y activa una <a
+                    href="../config/provider/configProvider.html#default-web-list">Web
+                    propuesta</a> que no te interese tener.
+                </li>
+                <li>Pulsar en el botón de editar.</li>
+                <li>
+                  Cambia su nombre (opcional), y luego sustituye su URL por la que habías copiado anteriormente (debe
+                  tener la palabra clave).
+                </li>
+                <li>Acepta los cambios.</li>
+              </ol>
+              <img class="image-center" loading="lazy" src="/assets/help-providers-dark-4_1.webp"
+                alt="Muestra los pasos 1 y 2 descritos anteriormente">
+              <img class="image-center" loading="lazy" src="/assets/help-providers-dark-4_2.webp"
+                alt="Muestra los pasos del 3 al 6 descritos anteriormente">
             </li>
             <li>
               <h4>Añadir una web desde el botón "añadir nueva url"</h4>
@@ -322,7 +327,7 @@
         <article>
           <h3>Cambiar el orden de las webs activas</h3>
           <p>En esta versión Beta no se encuentra esta funcionalidad, se añadirá más adelante.</p>
-          <p>La unica forma para re-ordenar la lista es eliminando y añadiendo las webs en el orden que interese.</p>
+          <p>La única forma para re-ordenar la lista es eliminando y añadiendo las webs en el orden que interese.</p>
         </article>
 
         <footer class="notes">
@@ -422,20 +427,68 @@
           <p>Se puede salir de la extensión de las siguientes formas:</p>
           <ul>
             <li>Pulsando la tecla "Esc"</li>
-            <li>Haciendo "Clic" fuera del límete de la extensión.</li>
+            <li>Haciendo "Clic" fuera del límite de la extensión.</li>
           </ul>
         </article>
       </details>
     </section>
 
-    <section aria-labelledby="section-4" hidden>
+    <section aria-labelledby="section-4">
       <details>
         <summary>
-          <h2 id="section-4">Reportar errores y sugerencias</h2>
+          <h2 id="section-4">Errores, dudas y sugerencias</h2>
         </summary>
 
-        <p id="open-section-4">Para informar de errores o enviar sugerencias se hará desde el mismo lugar.......</p>
+        <p id="open-section-4">
+          Si tienes alguna duda, sugerencia o crees que algo no funciona como debería, puedes comunicarlo para ayudar a
+          mejorar la extensión.
+        </p>
 
+        <p class="down">Todos los reportes se gestionan a través de GitHub.</p>
+        <p>
+          <a href="../config/report/configReport.html">Desde aquí</a> puedes acceder directamente a los reportes sin
+          complicarte.
+        </p>
+
+        <p class="down">Hay 3 tipos de reportes:</p>
+        <ul>
+          <li>
+            <h4>Reportar un error</h4>
+            <p>
+              Comunica fallos de la extensión o un mal funcionamiento de la misma.
+            </p>
+            <p class="down">
+              Para evitar abrir un reporte por algo que quizá sea un malentendido o una mala documentación por mi parte,
+              es mejor usar esta categoría <span class="bold">solo cuando estés totalmente seguro de que es un error
+                real de la extensión</span>.
+            </p>
+            <p class="down">
+              En el caso de que no estés seguro es mejor usar la categoría de "Reportar una duda o comentario".
+            </p>
+          </li>
+
+          <li>
+            <h4>Reportar una sugerencia</h4>
+            <p>
+              Si tienes una idea para mejorar la extensión, proponer un cambio o añadir unas nuevas "Webs propuestas",
+              ésta es la categoría adecuada.
+            </p>
+          </li>
+
+          <li>
+            <h4>Reportar una duda o comentario</h4>
+            <p>
+              Úsalo cuando no estés seguro de que lo que te ha pasado sea un error o un mal funcionamiento de la
+              extensión, tienes una duda que no está resuelta o quieras comunicar algo que no entraría dentro de las
+              categorías anteriores.
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          No necesitas conocimientos técnicos para enviar un reporte. <br>
+          Si algo no te queda claro, explícalo con tus propias palabras, ya sea en español o inglés.
+        </p>
       </details>
     </section>
   </main>
