@@ -113,9 +113,9 @@ Configuración básica:
 
 *Toda la información necesaria para la configuración se encuentra en la página de ayuda de la extensión.*
 
-## Errores, Sugerencias y dudas
+## Errores, Sugerencias y Dudas
 
- Todos los reportes relacionados con extensión se gestionan **exclusivamente a través de GitHub**.
+ Todos los reportes relacionados con la extensión se gestionan **exclusivamente a través de GitHub**.
 
 Antes de crear uno, revisa las opciones disponibles para asegurarte de usar el canal correcto.
 
