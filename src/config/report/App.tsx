@@ -74,6 +74,7 @@ export function App() {
               </section>
             </div>
           </article>
+          <p>* Los reportes se gestionan mediante GitHub para un mejor seguimiento.</p>
         </main>
       </div>
     </>
