@@ -38,6 +38,6 @@ export default defineConfig({
     environment: "jsdom",
     include: ["src/**/*.test.*"],
     globals: true,
-    setupFiles: "./mocks/setup.ts",
+    setupFiles: "./test/setup.ts",
   },
 });
