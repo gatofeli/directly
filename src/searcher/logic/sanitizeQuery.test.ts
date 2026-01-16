@@ -1,17 +1,49 @@
 import { MAX_LENGTH_QUERY } from "@utils/constants/default";
 import { sanitizeQuery } from "./sanitizeQuery";
 
-describe("A value different from the original value of the 'queryInput' prop will be returned when", () => {
-  test("Its type is not 'String' ==> empty string", () => {
-    // @ts-expect-error
-    expect(sanitizeQuery(undefined)).toBe("");
+describe("sanitizeQuery", () => {
+  describe("validation", () => {
+    test.for([
+      { value: undefined, type: "undefined" },
+      { value: null, type: "null" },
+      { value: 4, type: "number" },
+      { value: true, type: "boolean" },
+      { value: { a: "a" }, type: "object" },
+      { value: ["a"], type: "array" },
+    ])("returns an empty string when the input is $type", ({ value }) => {
+      const expected = "";
+
+      // @ts-expect-error
+      const result = sanitizeQuery(value);
+
+      expect(result).toBe(expected);
+    });
   });
 
-  test("It contains spaces at the beginning or end ==> `.trim()`", () => {
-    expect(sanitizeQuery("    hi    ")).toBe("hi");
-  });
+  describe("normalization", () => {
+    test("trims leading and trailing whitespace", () => {
+      const input = "  hello world  ";
+      const expected = "hello world";
 
-  test("It exceeds the maximum character limit `MAX_LENGTH_QUERY` ==> it is truncated", () => {
-    expect(sanitizeQuery("x".repeat(8000)).length).toEqual(MAX_LENGTH_QUERY);
+      const result = sanitizeQuery(input);
+
+      expect(result).toBe(expected);
+    });
+
+    test("does not modify the string when it is already valid", () => {
+      const validString = "hello world";
+
+      const result = sanitizeQuery(validString);
+
+      expect(result).toBe(validString);
+    });
+
+    test("truncates the string when it exceeds the maximum length", () => {
+      const input = "x".repeat(8000);
+
+      const result = sanitizeQuery(input);
+
+      expect(result.length).toBe(MAX_LENGTH_QUERY);
+    });
   });
 });
