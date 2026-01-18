@@ -13,7 +13,7 @@
 
 ## ¿Qué es Directly?
 
-**Directly** es una extensión gratuita para navegadores basados en Chromium, que ofrece una barra de consultas (que no de búsquedas) para acceder rápidamente al buscador interno o a la página principal de tus sitios favoritos.
+**Directly** es una extensión gratuita que ofrece una barra de consultas (que no de búsquedas) para acceder rápidamente al buscador interno o a la página principal de tus sitios favoritos.
 
 Directly navegará a:
 
@@ -71,7 +71,8 @@ Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
 ### Desde la Store (Próximamente)
 
-> **Nota:** La extensión aún no está publicada en la store. Para probarla puedes instalarla en modo desarrollador (ver la sección de [instalación manual](#manual-modo-desarrollador)).
+> [!IMPORTANT]
+>  La extensión aún no está publicada en la store. Para probarla puedes instalarla en modo desarrollador (ver la sección de [instalación manual](#manual-modo-desarrollador)).
 >
 > Cuando publiquemos la **beta** se actualizará este apartado con el enlace.
 
@@ -80,11 +81,12 @@ Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
 ### Manual (modo desarrollador)
 
-0. Instala `node.js >= 22`
+> [!IMPORTANT]
+> La rama `main` se usa para desarrollo activo y puede no reflejar una versión estable.
+>
+> Las versiones preparadas para subir a la Store se publican exclusivamente mediante **tags**.
 
-   > Node.js es necesario únicamente para generar los archivos de la extensión (carpeta `dist`) en modo desarrollador.
-   >
-   > Para usar la extensión, no es necesario tener Node.js ni el código del repositorio.
+0. Instala `node.js >= 22`
 
 1. Clona o **descarga este repositorio**.
 
@@ -100,6 +102,12 @@ Para realizar búsquedas desde la extensión no necesitas soltar el teclado.
 
 7. Selecciona la **carpeta `dist`** del proyecto.
 
+> [!NOTE]
+> **Node.js** es necesario únicamente para generar los archivos de la extensión (carpeta `dist`) en modo desarrollador.
+>
+> Para usar la extensión, no es necesario tener Node.js ni el código del repositorio.
+
+
 ## Configuración
 
 Un mensaje de ayuda a la configuración se mostrará cuando se active la extensión y su *Lista de webs activadas* se encuentre vacía o sin ningún dato válido *(es decir vacía, ya que los datos inválidos se descartarán)*.
@@ -111,7 +119,8 @@ Configuración básica:
 - Personalización de la lista de webs activadas.
 - Personalización de los atajos de teclado.
 
-*Toda la información necesaria para la configuración se encuentra en la página de ayuda de la extensión.*
+> [!NOTE]
+>  Toda la información necesaria para la configuración se encuentra en la página de ayuda de la extensión.
 
 ## Errores, Sugerencias y Dudas
 
@@ -120,9 +129,6 @@ Configuración básica:
 Antes de crear uno, revisa las opciones disponibles para asegurarte de usar el canal correcto.
 
 ### Reportar un error:
-
-Si no estás completamente seguro de que sea un error, **no abras una issue**.
-En ese caso, [reporta una duda](#reportar-una-duda).
 
 Los reportes de errores se realizan desde **Issues** y existen **dos plantillas distintas:**
 
@@ -134,6 +140,10 @@ Los reportes de errores se realizan desde **Issues** y existen **dos plantillas 
   - Accesible desde:
     - La sección **Issues** de GitHub.
     - La pestaña **"Errores y Sugerencias"** dentro de la configuración de la extensión.
+
+> [!IMPORTANT]
+> Si no estás completamente seguro de que sea un error, **no abras una issue**.
+> En ese caso, [reporta una duda](#reportar-una-duda).
 
 ### Reportar una sugerencia
 
@@ -167,8 +177,6 @@ El proyecto está en fase beta y la estructura interna puede cambiar.
 | `storage` | Guarda la configuración y lista de sitios en local. |
 
 *Directly solo usa el permiso "storage"*
-
-
 
 - **No recopila ningún tipo de dato**.
 - **No comparte ningún tipo de dato**.
