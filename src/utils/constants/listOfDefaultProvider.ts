@@ -29,19 +29,6 @@ const entertainment: ProviderType[] = [
   },
 
   {
-    alias: "AnimeFlv",
-    url: `https://www3.animeflv.net/browse?q=${KEYWORD}`,
-  },
-  {
-    alias: "Aniwatch",
-    url: `https://aniwatchtv.to/search?keyword=${KEYWORD}`,
-  },
-  {
-    alias: "Archive.org (anime)",
-    url: `https://archive.org/details/anime?tab=collection&query=${KEYWORD}`,
-  },
-
-  {
     alias: "IMDB",
     url: `https://www.imdb.com/es-es/find/?q=${KEYWORD}`,
   },
@@ -125,10 +112,6 @@ const books: ProviderType[] = [
   {
     alias: "Goodreads",
     url: `https://www.goodreads.com/search?q=${KEYWORD}`,
-  },
-  {
-    alias: "Archive.org (manga)",
-    url: `https://archive.org/details/manga_library?tab=collection&query=${KEYWORD}`,
   },
 ];
 const information: ProviderType[] = [
